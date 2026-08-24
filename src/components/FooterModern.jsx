@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
 import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const FooterModern = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const handleLinkClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const sectionId = href.slice(1);
+      if (isHomePage) {
+        const element = document.getElementById(sectionId);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/', { state: { scrollTo: sectionId } });
+      }
+    }
+  };
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [logoError, setLogoError] = useState(false);
@@ -151,23 +168,48 @@ const FooterModern = () => {
                   {title}
                 </h4>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  {links.map((link, index) => (
-                    <li key={index} style={{ marginBottom: '0.5rem' }}>
-                      <a
-                        href={link.href}
-                        style={{
-                          color: '#888',
-                          textDecoration: 'none',
-                          fontSize: '0.9rem',
-                          transition: 'color 0.3s',
-                        }}
-                        onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
-                        onMouseLeave={(e) => e.target.style.color = '#888'}
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
+                  {links.map((link, index) => {
+                    const isInternal = link.href.startsWith('/');
+                    
+                    const commonStyle = {
+                      color: '#888',
+                      textDecoration: 'none',
+                      fontSize: '0.9rem',
+                      transition: 'color 0.3s',
+                    };
+                    
+                    const handleMouseEnter = (e) => e.target.style.color = '#D32F2F';
+                    const handleMouseLeave = (e) => e.target.style.color = '#888';
+
+                    if (isInternal) {
+                      return (
+                        <li key={index} style={{ marginBottom: '0.5rem' }}>
+                          <Link
+                            to={link.href}
+                            style={commonStyle}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      );
+                    }
+
+                    return (
+                      <li key={index} style={{ marginBottom: '0.5rem' }}>
+                        <a
+                          href={link.href}
+                          onClick={(e) => handleLinkClick(e, link.href)}
+                          style={commonStyle}
+                          onMouseEnter={handleMouseEnter}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -265,8 +307,22 @@ const FooterModern = () => {
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-              <a href="#" title="Coming soon" aria-label="Privacy Policy (coming soon)" style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none' }}>{t('footer.privacy')}</a>
-              <a href="#" title="Coming soon" aria-label="Terms of Service (coming soon)" style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none' }}>{t('footer.terms')}</a>
+              <Link
+                to="/privacy"
+                style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
+                onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
+                onMouseLeave={(e) => e.target.style.color = '#666'}
+              >
+                {t('footer.privacy')}
+              </Link>
+              <Link
+                to="/terms"
+                style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
+                onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
+                onMouseLeave={(e) => e.target.style.color = '#666'}
+              >
+                {t('footer.terms')}
+              </Link>
               
               {/* Back to Top */}
               <button

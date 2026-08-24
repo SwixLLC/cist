@@ -201,7 +201,7 @@ const HeroModern = () => {
             { value: '15+', label: t('hero.years') },
             { value: '500+', label: t('hero.students') },
             { value: '40+', label: t('hero.teachers') },
-            { value: '3', label: t('hero.languages') },
+            { value: '100%', label: t('hero.englishCourses') },
           ].map((stat, index) => (
             <div key={index} style={{ textAlign: 'center' }}>
               <div style={{

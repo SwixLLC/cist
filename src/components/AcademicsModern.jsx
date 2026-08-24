@@ -28,19 +28,19 @@ const AcademicsModern = () => {
       id: 'kindergarten',
       icon: BookOpen,
       title: 'Greenbridge Academy',
-      subtitle: 'Opening 2027 · Ages 3-5',
+      subtitle: 'Ages 3-5',
       color: '#FF6B9D',
       gradient: 'linear-gradient(135deg, #FF6B9D 0%, #C44569 100%)',
-      image: '/images/Academics/kindergarten.webp',
-      description: 'Greenbridge Academy — our dedicated kindergarten campus — will open in 2027, offering young learners a nurturing environment to discover the joy of education through play-based learning.',
+      image: '/images/Academics/kindergarten_new.jpg',
+      description: 'Greenbridge Academy — our dedicated kindergarten campus — offers young learners a nurturing environment to discover the joy of education through play-based learning.',
       features: [
         '100% English instruction',
-        'Ontario curriculum foundation',
+        'International standards foundation',
         'Play-based learning approach',
         'Social and emotional development',
-        'Opening in 2027',
+        'Nurturing environment',
       ],
-      stats: { students: 'Coming', teachers: '2027', ratio: '8:1' },
+      stats: { students: '50', teachers: '6', ratio: '8:1' },
     },
     {
       id: 'primary',
@@ -49,12 +49,12 @@ const AcademicsModern = () => {
       subtitle: 'Grades 1-6',
       color: '#4ECDC4',
       gradient: 'linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%)',
-      image: '/images/Academics/primary.webp',
-      description: 'Building strong foundations with Ontario curriculum while fostering critical thinking and creativity.',
+      image: '/images/Academics/primary_new.jpg',
+      description: 'Building strong foundations with a curriculum aligned with international standards while fostering critical thinking and creativity.',
       features: [
         '100% English instruction',
-        'Ontario curriculum standards',
-        'Ministry of Education of Ontario registered',
+        'International educational standards',
+        'Aligned with international standards',
         'STEM integration',
         'Project-based learning',
       ],
@@ -67,12 +67,12 @@ const AcademicsModern = () => {
       subtitle: 'Grades 7-8',
       color: '#2196F3',
       gradient: 'linear-gradient(135deg, #2196F3 0%, #1976D2 100%)',
-      image: '/images/hero2.webp',
+      image: '/images/Academics/middle_new.jpg',
       description: 'Transition years focused on deeper subject knowledge and developing independent learning skills.',
       features: [
         '100% English instruction',
-        'Ontario curriculum standards',
-        'Ministry of Education of Ontario registered',
+        'International educational standards',
+        'Aligned with international standards',
         'Critical thinking development',
         'Leadership opportunities',
       ],
@@ -85,12 +85,12 @@ const AcademicsModern = () => {
       subtitle: 'Grades 9-12',
       color: '#9C27B0',
       gradient: 'linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)',
-      image: '/images/Academics/highschool.jpg',
-      description: 'Preparing students for global success with rigorous Ontario curriculum and university preparation.',
+      image: '/images/Academics/high_new.jpg',
+      description: 'Preparing students for global success with a curriculum aligned with international standards and university preparation.',
       features: [
         '100% English instruction',
-        'Ontario secondary school diploma',
-        'Ministry of Education of Ontario registered',
+        'International high school diploma preparation',
+        'Aligned with international standards',
         'Advanced Placement courses',
         'University preparation programs',
       ],
@@ -99,7 +99,7 @@ const AcademicsModern = () => {
   ];
 
   const highlights = [
-    { icon: Award, title: 'Ontario Curriculum', desc: '100% English instruction, Ministry registered' },
+    { icon: Award, title: '100% English Courses', desc: '100% English instruction aligned with international standards' },
     { icon: Star, title: 'Excellence', desc: 'Academic rigor and innovation' },
     { icon: Clock, title: 'Flexible Programs', desc: 'After-school activities & support' },
   ];
@@ -156,9 +156,7 @@ const AcademicsModern = () => {
           >
             Discover our comprehensive educational programs designed to nurture excellence from early childhood through university preparation.
           </p>
-        </div>
-
-        {/* Program Cards */}
+        </div>        {/* Program Cards */}
         <div
           style={{
             display: 'grid',
@@ -211,7 +209,7 @@ const AcademicsModern = () => {
                     backgroundImage: `url(${program.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    opacity: 0.3,
+                    opacity: 0.35,
                   }}
                 />
                 <div style={{ position: 'relative', zIndex: 1 }}>
@@ -340,39 +338,6 @@ const AcademicsModern = () => {
           ))}
         </div>
 
-        {/* View Curriculum Button */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <a
-            href="https://www.dcp.edu.gov.on.ca/en/curriculum#elementary"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
-              color: 'white',
-              padding: '1rem 2.5rem',
-              borderRadius: '50px',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: 600,
-              transition: 'all 0.3s ease',
-              boxShadow: '0 4px 15px rgba(211, 47, 47, 0.3)',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'translateY(-3px)';
-              e.target.style.boxShadow = '0 8px 25px rgba(211, 47, 47, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 4px 15px rgba(211, 47, 47, 0.3)';
-            }}
-          >
-            <BookOpen size={20} />
-            View Curriculum
-          </a>
-        </div>
 
         {/* Highlights */}
         <div

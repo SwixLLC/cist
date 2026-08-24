@@ -11,6 +11,8 @@ import ContactModern from './components/ContactModern';
 import MapSection from './components/MapSection';
 import FooterModern from './components/FooterModern';
 import EnrollmentPage from './pages/EnrollmentPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function HomePage() {
@@ -94,6 +96,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/enroll" element={<EnrollmentPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
