@@ -172,11 +172,11 @@ const TermsPage = () => {
           fontSize: 'clamp(2rem, 4vw, 3rem)',
           fontWeight: 700,
           marginBottom: '0.5rem',
-          fontFamily: 'Playfair Display, serif'
+          fontFamily: '"Times New Roman", Times, serif'
         }}>
           {currentContent.title}
         </h1>
-        <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>{currentContent.lastUpdated}</p>
+        <p style={{ opacity: 0.7, fontSize: '0.9rem', fontFamily: '"Times New Roman", Times, serif' }}>{currentContent.lastUpdated}</p>
       </div>
 
       {/* Main Content Container */}
@@ -193,7 +193,8 @@ const TermsPage = () => {
           padding: 'clamp(1.5rem, 5vw, 3rem)',
           boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
           lineHeight: 1.8,
-          color: '#444'
+          color: '#444',
+          fontFamily: '"Times New Roman", Times, serif'
         }}>
           <p style={{ fontSize: '1.05rem', color: '#666', marginBottom: '2rem' }}>
             {currentContent.intro}
