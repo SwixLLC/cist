@@ -101,7 +101,7 @@ const AcademicsModern = () => {
   const highlights = [
     { icon: Award, title: '100% English Courses', desc: '100% English instruction aligned with international standards' },
     { icon: Star, title: 'Excellence', desc: 'Academic rigor and innovation' },
-    { icon: Clock, title: 'Flexible Programs', desc: 'After-school activities & support' },
+    { icon: Clock, title: 'Flexible Programs', desc: 'After-school activities and support' },
   ];
 
   return (
