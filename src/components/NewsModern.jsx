@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, User, ArrowRight, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { getNews, getEvents, DEFAULT_NEWS, DEFAULT_EVENTS } from '../lib/cmsData';
 
 const NewsModern = () => {
   const { t } = useTranslation();
@@ -35,61 +36,21 @@ const NewsModern = () => {
     { id: 'announcements', label: t('news.announcements') },
   ];
 
-  const newsItems = [
-    {
-      id: 1,
-      category: 'announcements',
-      categoryLabel: 'Announcement',
-      date: 'June 1, 2026',
-      readTime: '4 min',
-      title: 'Holidays 2027 - Canadian International School Tangier',
-      excerpt: 'View all school holidays, breaks, and important dates for the 2027 academic year at CIST.',
-      author: 'Admin Office',
-      image: '/images/events/Holidays.webp',
-      content: 'The holidays calendar for 2027 is now available for Canadian International School Tangier. Plan your family vacations and important events around school holidays, breaks, and professional development days.',
-    },
-    {
-      id: 2,
-      category: 'achievements',
-      categoryLabel: 'Achievement',
-      date: 'April 15, 2024',
-      readTime: '3 min',
-      title: 'Student Wins National Robotics Competition',
-      excerpt: 'One of our talented students brought home the trophy from the National Robotics Championship.',
-      author: 'Dr. Sarah Ahmed',
-      image: '/images/events/achievment1.webp',
-      content: 'We are thrilled to announce that one of our outstanding students has won the National Robotics Competition! This remarkable achievement showcases the excellence of our STEM and robotics program. The student demonstrated exceptional programming skills, engineering creativity, and problem-solving abilities. Congratulations to our champion!',
-    },
-    {
-      id: 3,
-      category: 'achievements',
-      categoryLabel: 'Achievement',
-      date: 'March 20, 2024',
-      readTime: '3 min',
-      title: 'CIST Students Win Ramadan Mini Football Tournament',
-      excerpt: 'Our students beat competing schools and brought home the championship trophy from the Ramadan Mini Football Tournament.',
-      author: 'Coach Yassir',
-      image: '/images/events/sport10.webp',
-      content: 'Congratulations to our amazing students for winning the Ramadan Mini Football Tournament! CIST faced off against several other schools in a thrilling competition, and our team rose to the challenge with exceptional skill, teamwork, and sportsmanship. Competing against strong opponents, they delivered outstanding performances in every match. This victory is a testament to their dedication and hard work in training. We are incredibly proud of their achievement!',
-    },
-    {
-      id: 4,
-      category: 'events',
-      categoryLabel: 'Event',
-      date: 'May 21, 2026',
-      readTime: '3 min',
-      title: 'CIST × Baraat Al Boughaz — Recreational Day at Medina Forest',
-      excerpt: 'CIST partnered with Baraat Al Boughaz Association to organise a fun-filled outdoor day for our students at Medina Forest.',
-      author: 'Admin Office',
-      image: '/images/events/collab.webp',
-      content: 'On Thursday, May 21, 2026, CIST students enjoyed a special recreational day at Medina Forest in collaboration with the Baraat Al Boughaz Association. The programme was packed with activities designed to nurture teamwork, creativity, and joy — including flag salute, sports competitions, group games, a shared breakfast, artistic creations, a drawing competition, and an educational nature lab. It was a wonderful day that brought our school community closer together while connecting students with the beautiful natural environment of Tangier.',
-    },
-  ];
+  const [newsItems, setNewsItems] = useState(DEFAULT_NEWS);
+  const [upcomingEvents, setUpcomingEvents] = useState(DEFAULT_EVENTS);
 
-  const upcomingEvents = [
-    { date: 'May 20', title: 'School Trip', time: 'All Day' },
-    { date: 'Jun 19', title: 'Graduation Ceremony', time: '10:00 AM - 2:00 PM' },
-  ];
+  useEffect(() => {
+    const loadContent = async () => {
+      const news = await getNews();
+      const events = await getEvents();
+      if (news && news.length > 0) setNewsItems(news);
+      if (events && events.length > 0) setUpcomingEvents(events);
+    };
+    loadContent();
+
+    window.addEventListener('cist_content_updated', loadContent);
+    return () => window.removeEventListener('cist_content_updated', loadContent);
+  }, []);
 
   const filteredNews = activeFilter === 'all'
     ? (showMore ? newsItems : newsItems.slice(0, 2))

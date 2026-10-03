@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import NavbarModern from './components/NavbarModern';
 import HeroModern from './components/HeroModern';
@@ -14,6 +14,7 @@ import EnrollmentPage from './pages/EnrollmentPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
+import AdminPanelPage from './pages/AdminPanelPage';
 
 function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -98,6 +99,8 @@ function App() {
         <Route path="/enroll" element={<EnrollmentPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/admin-panel" element={<AdminPanelPage />} />
+        <Route path="/admin" element={<Navigate to="/admin-panel" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

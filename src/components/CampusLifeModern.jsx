@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Camera, X, Trophy, Music, BookOpen, Heart, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { getGallery } from '../lib/cmsData';
 
 const CampusLifeModern = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const CampusLifeModern = () => {
     { id: 'community', name: t('campus.community'), icon: Heart },
   ];
 
-  const galleryItems = [
+  const INITIAL_GALLERY = [
     // Sports - New images first
     { id: 13, src: '/images/sport/match.webp', category: 'sports', title: 'Football Match' },
     { id: 14, src: '/images/sport/plan.webp', category: 'sports', title: 'Team Strategy' },
@@ -76,6 +77,24 @@ const CampusLifeModern = () => {
     { id: 402, src: '/images/art/art-2.webp', category: 'arts', title: 'Visual Arts' },
     { id: 405, src: '/images/art/art-5.webp', category: 'arts', title: 'Art Gallery' },
   ];
+
+  const [galleryItems, setGalleryItems] = useState(INITIAL_GALLERY);
+
+  useEffect(() => {
+    const loadGallery = async () => {
+      const items = await getGallery();
+      if (items && items.length > 0) {
+        const initialMap = new Map(INITIAL_GALLERY.map((i) => [i.id, i]));
+        // Put newly uploaded photos first
+        const customItems = items.filter((i) => !initialMap.has(i.id));
+        setGalleryItems([...customItems, ...INITIAL_GALLERY]);
+      }
+    };
+    loadGallery();
+
+    window.addEventListener('cist_content_updated', loadGallery);
+    return () => window.removeEventListener('cist_content_updated', loadGallery);
+  }, []);
 
   const activities = [
     {
