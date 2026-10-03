@@ -50,7 +50,7 @@ const FooterModern = () => {
     [t('footer.contact')]: [
       { name: 'Route du Charf, Km 5', href: '#map-section' },
       { name: 'Tangier 90000, Morocco', href: '#map-section' },
-      { name: '+212 665-696565', href: 'tel:+212665696565' },
+      { name: '+212 80 857 0841', href: 'tel:+212808570841' },
       { name: 'contact@cist.ma', href: 'mailto:contact@cist.ma' },
     ],
   };

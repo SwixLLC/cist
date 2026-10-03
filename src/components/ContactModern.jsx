@@ -97,7 +97,7 @@ const ContactModern = () => {
     {
       icon: Phone,
       title: t('contact.phoneLabel'),
-      content: ['+212 665-696565'],
+      content: ['+212 80 857 0841'],
       color: '#4ECDC4',
     },
     {
