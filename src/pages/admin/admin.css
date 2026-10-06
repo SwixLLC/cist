@@ -1955,3 +1955,22 @@
     animation: adm-fade 200ms ease;
   }
 }
+
+.adm-icon-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  /* Row buttons get their own line so titles keep room to breathe */
+  .adm-row {
+    flex-wrap: wrap;
+  }
+
+  .adm-row__actions {
+    flex-basis: 100%;
+    justify-content: flex-end;
+    margin-top: -6px;
+  }
+}

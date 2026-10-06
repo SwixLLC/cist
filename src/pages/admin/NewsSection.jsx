@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Plus, Pencil, Trash2, Newspaper, Image as ImageIcon } from 'lucide-react';
-import { getNews, saveNews, deleteNews } from '../../lib/cmsData';
+import { Plus, Pencil, Trash2, Newspaper, Image as ImageIcon, ArrowUp, ArrowDown } from 'lucide-react';
+import { getNews, saveNews, deleteNews, saveNewsOrder } from '../../lib/cmsData';
 import {
   useToast, useSaveToast, useConfirm, Sheet, Field, ImagePicker, EmptyState, SkeletonList,
   newsDateToIso, isoToNewsDate,
@@ -39,6 +39,29 @@ export default function NewsSection() {
     load();
   }, []);
 
+  // New articles go to the top. Only set an order once the list has one (needs the sort_order column).
+  const newArticle = () => {
+    const ordered = (items || []).filter((i) => typeof i.sort_order === 'number');
+    const article = blankArticle();
+    if (ordered.length) article.sort_order = Math.min(...ordered.map((i) => i.sort_order)) - 1;
+    setEditing(article);
+  };
+
+  const move = async (index, delta) => {
+    const target = index + delta;
+    if (target < 0 || target >= items.length) return;
+    const next = [...items];
+    [next[index], next[target]] = [next[target], next[index]];
+    setItems(next); // show the new order straight away
+    const result = await saveNewsOrder(next.map((n) => n.id));
+    if (result.savedInSupabase === false) {
+      toast('Order saved on this device only', {
+        tone: 'warn',
+        detail: 'The website database needs the "sort_order" column. Run the latest supabase/setup.sql, then try again.',
+      });
+    }
+  };
+
   const remove = async (item) => {
     const ok = await confirm({
       title: 'Delete this article?',
@@ -55,10 +78,10 @@ export default function NewsSection() {
       <header className="adm-head">
         <div>
           <h1>News</h1>
-          <p>Articles and announcements shown in the News section of the website, newest first.</p>
+          <p>Articles shown in the News section of the website, in this order. The first one is the large featured article. Use the arrows to change the order.</p>
         </div>
         <div className="adm-head__actions">
-          <button type="button" className="adm-btn adm-btn--primary" onClick={() => setEditing(blankArticle())}>
+          <button type="button" className="adm-btn adm-btn--primary" onClick={newArticle}>
             <Plus size={17} /> New article
           </button>
         </div>
@@ -71,7 +94,7 @@ export default function NewsSection() {
           icon={Newspaper}
           title="No articles yet"
           action={(
-            <button type="button" className="adm-btn adm-btn--primary" onClick={() => setEditing(blankArticle())}>
+            <button type="button" className="adm-btn adm-btn--primary" onClick={newArticle}>
               <Plus size={17} /> Write the first article
             </button>
           )}
@@ -80,7 +103,7 @@ export default function NewsSection() {
         </EmptyState>
       ) : (
         <div className="adm-list">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <article className="adm-row" key={item.id}>
               {item.image ? (
                 <img className="adm-row__thumb" src={item.image} alt="" loading="lazy" />
@@ -97,6 +120,26 @@ export default function NewsSection() {
                 {item.excerpt && <p className="adm-row__excerpt">{item.excerpt}</p>}
               </div>
               <div className="adm-row__actions">
+                <button
+                  type="button"
+                  className="adm-icon-btn"
+                  onClick={() => move(index, -1)}
+                  disabled={index === 0}
+                  aria-label={`Move “${item.title}” up`}
+                  title="Move up"
+                >
+                  <ArrowUp size={17} />
+                </button>
+                <button
+                  type="button"
+                  className="adm-icon-btn"
+                  onClick={() => move(index, 1)}
+                  disabled={index === items.length - 1}
+                  aria-label={`Move “${item.title}” down`}
+                  title="Move down"
+                >
+                  <ArrowDown size={17} />
+                </button>
                 <button type="button" className="adm-icon-btn" onClick={() => setEditing(item)} aria-label={`Edit “${item.title}”`} title="Edit">
                   <Pencil size={17} />
                 </button>

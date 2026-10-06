@@ -27,7 +27,8 @@ alter table public.news_items
   add column if not exists excerpt text,
   add column if not exists author text,
   add column if not exists image text,
-  add column if not exists content text;
+  add column if not exists content text,
+  add column if not exists sort_order integer;
 
 create table if not exists public.upcoming_events (
   id uuid primary key default gen_random_uuid(),

@@ -4,6 +4,14 @@ import { DEFAULT_NEWS, DEFAULT_EVENTS, DEFAULT_GALLERY } from './defaultContent'
 export { DEFAULT_NEWS, DEFAULT_EVENTS };
 
 // --- NEWS API ---
+// Articles follow the order set in Admin → News (sort_order); unordered ones fall back to newest first
+const byNewsOrder = (items) => [...items].sort((a, b) => {
+  const ao = a.sort_order ?? Infinity;
+  const bo = b.sort_order ?? Infinity;
+  if (ao !== bo) return ao - bo;
+  return String(b.created_at || '').localeCompare(String(a.created_at || ''));
+});
+
 export async function getNews() {
   try {
     const { data, error } = await supabase
@@ -12,7 +20,7 @@ export async function getNews() {
       .order('created_at', { ascending: false });
 
     if (!error && data && data.length > 0) {
-      return data;
+      return byNewsOrder(data);
     }
   } catch (e) {
     console.warn('Supabase news_items table not reachable, checking localStorage', e);
@@ -22,12 +30,33 @@ export async function getNews() {
   const local = localStorage.getItem('cist_custom_news');
   if (local) {
     try {
-      return JSON.parse(local);
+      return byNewsOrder(JSON.parse(local));
     } catch {
       return DEFAULT_NEWS;
     }
   }
   return DEFAULT_NEWS;
+}
+
+/** Saves the order of articles as shown in the admin list (first = top of the website). */
+export async function saveNewsOrder(orderedIds) {
+  let isSavedInSupabase = true;
+  try {
+    const results = await Promise.all(
+      orderedIds.map((id, index) => supabase.from('news_items').update({ sort_order: index }).eq('id', id))
+    );
+    if (results.some((r) => r.error)) isSavedInSupabase = false;
+  } catch (e) {
+    console.warn('Could not save news order to Supabase', e);
+    isSavedInSupabase = false;
+  }
+
+  const current = await getNews();
+  const position = new Map(orderedIds.map((id, index) => [id, index]));
+  const updated = current.map((n) => (position.has(n.id) ? { ...n, sort_order: position.get(n.id) } : n));
+  localStorage.setItem('cist_custom_news', JSON.stringify(byNewsOrder(updated)));
+  window.dispatchEvent(new Event('cist_content_updated'));
+  return { success: true, savedInSupabase: isSavedInSupabase };
 }
 
 export async function saveNews(newsItem) {
