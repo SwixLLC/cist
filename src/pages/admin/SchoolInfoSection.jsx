@@ -10,7 +10,8 @@ const GROUPS = [
     description: 'Shown in the contact section, the footer and the “How to join” buttons.',
     fields: [
       { key: 'phone', label: 'Phone number', type: 'tel' },
-      { key: 'whatsapp', label: 'WhatsApp number', type: 'tel', hint: 'Used by the green WhatsApp button. Include the country code.' },
+      { key: 'whatsapp', label: 'WhatsApp number', type: 'tel', hint: 'Used by the WhatsApp buttons. Include the country code.' },
+      { key: 'showWhatsappButton', label: 'Floating WhatsApp button', type: 'toggle', wide: true, hint: 'The round green button in the bottom corner of every page.' },
       { key: 'email', label: 'Email address', type: 'email' },
       { key: 'addressLine1', label: 'Address (line 1)' },
       { key: 'addressLine2', label: 'Address (line 2)' },
@@ -81,6 +82,21 @@ export default function SchoolInfoSection() {
               <div className="adm-form-grid">
                 {group.fields.map((f) => (
                   <div className={f.wide ? 'adm-field--wide' : undefined} key={f.key}>
+                    {f.type === 'toggle' ? (
+                      <div className="adm-field">
+                        <span className="adm-label">{f.label}</span>
+                        <label style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14.5, cursor: 'pointer' }}>
+                          <input
+                            type="checkbox"
+                            checked={draft[f.key] !== undefined ? !!draft[f.key] : !!DEFAULT_SETTINGS[f.key]}
+                            onChange={(e) => setDraft((d) => ({ ...d, [f.key]: e.target.checked }))}
+                            style={{ width: 18, height: 18, accentColor: 'var(--red)' }}
+                          />
+                          Show on the website
+                        </label>
+                        <span className="adm-hint">{f.hint}</span>
+                      </div>
+                    ) : (
                     <Field label={f.label} htmlFor={`info-${f.key}`} hint={f.hint}>
                       <input
                         id={`info-${f.key}`}
@@ -90,6 +106,7 @@ export default function SchoolInfoSection() {
                         onChange={set(f.key)}
                       />
                     </Field>
+                    )}
                   </div>
                 ))}
               </div>

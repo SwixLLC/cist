@@ -41,7 +41,9 @@ function resolve(content) {
   Object.keys(DEFAULT_IMAGES).forEach((k) => { if (!images[k]) images[k] = DEFAULT_IMAGES[k]; });
 
   const settings = { ...DEFAULT_SETTINGS };
-  Object.entries(content.settings || {}).forEach(([k, v]) => { if (v) settings[k] = v; });
+  Object.entries(content.settings || {}).forEach(([k, v]) => {
+    if (typeof v === 'boolean' || v) settings[k] = v;
+  });
 
   return { images, settings };
 }

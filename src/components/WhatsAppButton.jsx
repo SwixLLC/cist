@@ -4,6 +4,7 @@ import { useSite, whatsappHref } from '../lib/siteContent';
 
 const WhatsAppButton = () => {
   const { settings } = useSite();
+  if (!settings.showWhatsappButton) return null;
   return (
     <a
       className="lp-whatsapp"

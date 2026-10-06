@@ -113,6 +113,7 @@ export const DEFAULT_IMAGES = {
 export const DEFAULT_SETTINGS = {
   phone: '+212 80 857 0841',
   whatsapp: '+212 80 857 0841',
+  showWhatsappButton: false,
   email: 'contact@cist.ma',
   addressLine1: 'Route du Charf, Km 5',
   addressLine2: 'Tangier 90000, Morocco',
