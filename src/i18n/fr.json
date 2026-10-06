@@ -6,7 +6,8 @@
     "campus": "Campus",
     "news": "Actualités",
     "contact": "Contact",
-    "register": "S'inscrire"
+    "register": "S'inscrire",
+    "admissions": "Admissions"
   },
   "hero": {
     "line1": "L'Excellence en",
@@ -14,13 +15,13 @@
     "subtitle": "École Internationale Canadienne de Tanger — Former des citoyens du monde selon des standards internationaux rigoureux",
     "register": "S'inscrire",
     "tour": "Visiter l'École",
-    "years": "Ans",
-    "students": "Élèves",
-    "teachers": "Enseignants",
-    "englishCourses": "Cours en Anglais"
+    "fact_founded": "Fondée en 2010",
+    "fact_english": "Enseignement 100 % en anglais",
+    "fact_grades": "De la maternelle à la 12e année",
+    "fact_city": "Tanger, Maroc",
+    "slide": "Afficher la photo {{n}}"
   },
   "about": {
-    "label": "À Propos",
     "title": "Former les Leaders de Demain",
     "description": "L'École Internationale Canadienne de Tanger est un phare d'excellence éducative en Afrique du Nord, offrant un programme d'études aligné sur les standards internationaux qui prépare les élèves au succès mondial.",
     "ontarioLabel": "Cours 100% en Anglais",
@@ -28,13 +29,9 @@
     "ministryLabel": "Normes Internationales",
     "ministryDesc": "Programme aligné sur les normes internationales",
     "classesLabel": "Petites Classes",
-    "classesDesc": "Ratio élève-enseignant de 10:1",
+    "classesDesc": "Une attention personnalisée pour chaque élève",
     "holisticLabel": "Développement Holistique",
     "holisticDesc": "Accent sur le développement global",
-    "nationalities": "Nationalités",
-    "university": "Acceptation Universitaire",
-    "ratio": "Ratio Élève",
-    "founded": "Fondée",
     "worldClassTitle": "Une Éducation de Classe Mondiale à Tanger",
     "worldClassDesc": "Nos cours 100% en anglais garantissent que les élèves développent de solides compétences linguistiques et académiques. Nous combinons des méthodes d'enseignement innovantes avec des valeurs traditionnelles pour créer des individus équilibrés et confiants.",
     "excellenceLabel": "Excellence",
@@ -46,7 +43,6 @@
     "valuesTitle": "Nos Valeurs Fondamentales"
   },
   "academics": {
-    "label": "Académique",
     "title": "Programmes Académiques",
     "subtitle": "Découvrez nos programmes éducatifs complets conçus pour cultiver l'excellence de la petite enfance jusqu'à la préparation universitaire.",
     "kindergartenTitle": "Greenbridge Academy",
@@ -63,7 +59,6 @@
     "highDesc": "Préparer les élèves au succès mondial avec un programme aligné sur les normes internationales et la préparation universitaire.",
     "f_english": "Enseignement 100% en anglais",
     "f_ontario": "Normes éducatives internationales",
-    "f_ministry": "Aligné sur les normes internationales",
     "f_stem": "Intégration STEM",
     "f_project": "Apprentissage par projets",
     "f_critical": "Développement de la pensée critique",
@@ -74,21 +69,8 @@
     "f_play": "Apprentissage par le jeu",
     "f_social": "Développement social et émotionnel",
     "f_opening": "Environnement bienveillant",
-    "f_foundation": "Bases des normes internationales",
-    "keyFeatures": "Caractéristiques Clés :",
-    "showLess": "Voir Moins",
-    "learnMore": "En Savoir Plus",
-    "viewCurriculum": "Voir le Programme",
-    "ontarioLabel": "Cours 100% en Anglais",
-    "ontarioDesc": "Enseignement 100% en anglais aligné sur les normes internationales",
-    "excellenceLabel": "Excellence",
-    "excellenceDesc": "Rigueur académique et innovation",
-    "flexibleLabel": "Programmes Flexibles",
-    "flexibleDesc": "Activités parascolaires et soutien",
-    "studentsLabel": "Élèves",
-    "teachersLabel": "Enseignants",
-    "ratioLabel": "Ratio",
-    "comingLabel": "Bientôt"
+    "stagesLabel": "Niveaux scolaires",
+    "apply": "Postuler pour ce niveau"
   },
   "campus": {
     "label": "Vie du Campus",
@@ -100,13 +82,33 @@
     "academics": "Académique",
     "community": "Communauté",
     "sportsTitle": "Sports et Athlétisme",
-    "sportsItems": ["Basketball", "Football", "Natation", "Athlétisme"],
+    "sportsItems": [
+      "Basketball",
+      "Football",
+      "Natation",
+      "Athlétisme"
+    ],
     "artsTitle": "Arts et Culture",
-    "artsItems": ["Arts Visuels", "Musique", "Théâtre", "Danse"],
+    "artsItems": [
+      "Arts Visuels",
+      "Musique",
+      "Théâtre",
+      "Danse"
+    ],
     "clubsTitle": "Clubs Académiques",
-    "clubsItems": ["Robotique", "Débat", "Échecs", "Club de Sciences"],
+    "clubsItems": [
+      "Robotique",
+      "Débat",
+      "Échecs",
+      "Club de Sciences"
+    ],
     "serviceTitle": "Service Communautaire",
-    "serviceItems": ["Bénévolat", "Environnement", "Charité", "Mentorat"],
+    "serviceItems": [
+      "Bénévolat",
+      "Environnement",
+      "Charité",
+      "Mentorat"
+    ],
     "viewMore": "Voir Plus",
     "viewLess": "Voir Moins"
   },
@@ -122,12 +124,11 @@
     "showLess": "Voir Moins",
     "viewMore": "Voir Plus",
     "viewLess": "Voir Moins",
-    "viewAll": "Voir Tous les Événements",
     "upcoming": "Événements à Venir",
-    "minRead": "min de lecture"
+    "minRead": "min de lecture",
+    "close": "Fermer"
   },
   "contact": {
-    "label": "Nous Contacter",
     "title": "Contactez-Nous",
     "subtitle": "Des questions ? Nous serions ravis de vous entendre. Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.",
     "addressLabel": "Adresse",
@@ -156,10 +157,8 @@
     "whyTitle": "Pourquoi Choisir l'EICT ?",
     "why1": "Normes éducatives internationales",
     "why2": "Cours 100% en anglais",
-    "why3": "Petites classes (ratio 10:1)",
     "why4": "Installations de pointe",
     "why5": "Programmes d'échange internationaux",
-    "why6": "Taux d'acceptation universitaire de 100%",
     "followUs": "Suivez-Nous",
     "nameError": "Le nom est requis.",
     "emailError": "L'email est requis.",
@@ -177,21 +176,14 @@
     "campus": "Vie du Campus",
     "news": "Actualités et Événements",
     "contact": "Contact",
-    "newsletter": "Abonnez-vous à Notre Newsletter",
-    "newsletterDesc": "Restez informé des dernières nouvelles et événements de l'EICT.",
-    "emailPlaceholder": "Entrez votre email",
-    "subscribe": "S'abonner",
-    "subscribed": "Abonné !",
     "rights": "École Internationale Canadienne de Tanger. Tous droits réservés.",
     "privacy": "Politique de Confidentialité",
     "terms": "Conditions d'Utilisation"
   },
   "map": {
-    "label": "Nous Trouver",
     "title": "Visitez Notre Campus",
     "subtitle": "Situé dans la belle ville de Tanger, notre campus est facilement accessible et accueille les visiteurs pour des visites guidées.",
-    "directions": "Obtenir l'Itinéraire",
-    "openMaps": "Ouvrir dans Google Maps"
+    "directions": "Obtenir l'Itinéraire"
   },
   "enrollment": {
     "title": "Pré-Inscription",
@@ -223,5 +215,18 @@
     "successMsg": "Merci pour votre intérêt pour l'École Internationale Canadienne de Tanger. Nous avons reçu votre pré-inscription et vous contacterons dans 24 à 48 heures.",
     "returnHome": "Retour à l'Accueil",
     "errorMsg": "Une erreur s'est produite lors de la soumission. Veuillez réessayer."
+  },
+  "admissions": {
+    "title": "Comment rejoindre CIST",
+    "subtitle": "Trois étapes simples pour inscrire votre enfant.",
+    "step1Title": "Contactez-nous ou visitez",
+    "step1Desc": "Posez-nous vos questions par téléphone, WhatsApp ou via le formulaire de contact, ou réservez une visite du campus.",
+    "step2Title": "Postulez en ligne",
+    "step2Desc": "Remplissez le formulaire d'inscription en ligne pour votre enfant.",
+    "step3Title": "Nous vous recontactons",
+    "step3Desc": "Notre équipe des admissions vous contacte pour les étapes suivantes.",
+    "apply": "Postuler en ligne",
+    "whatsapp": "Écrire sur WhatsApp",
+    "call": "Appelez-nous"
   }
 }

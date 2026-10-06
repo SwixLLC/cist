@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, ArrowRight, ChevronUp } from 'lucide-react';
+import { GraduationCap, Facebook, Instagram, Linkedin, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSite, telHref } from '../lib/siteContent';
 
 const FooterModern = () => {
   const { t } = useTranslation();
+  const { images, settings } = useSite();
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -21,18 +23,7 @@ const FooterModern = () => {
       }
     }
   };
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
   const [logoError, setLogoError] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubscribed(true);
-      setEmail('');
-      setTimeout(() => setIsSubscribed(false), 3000);
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -42,23 +33,23 @@ const FooterModern = () => {
     [t('footer.quickLinks')]: [
       { name: t('footer.about'), href: '#about' },
       { name: t('footer.academics'), href: '#academics' },
-      { name: t('footer.admissions'), href: '/enroll' },
+      { name: t('footer.admissions'), href: '#admissions' },
       { name: t('footer.campus'), href: '#campus-life' },
       { name: t('footer.news'), href: '#news' },
       { name: t('footer.contact'), href: '#contact' },
     ],
     [t('footer.contact')]: [
-      { name: 'Route du Charf, Km 5', href: '#map-section' },
-      { name: 'Tangier 90000, Morocco', href: '#map-section' },
-      { name: '+212 80 857 0841', href: 'tel:+212808570841' },
-      { name: 'contact@cist.ma', href: 'mailto:contact@cist.ma' },
+      { name: settings.addressLine1, href: '#map-section' },
+      { name: settings.addressLine2, href: '#map-section' },
+      { name: settings.phone, href: telHref(settings.phone) },
+      { name: settings.email, href: `mailto:${settings.email}` },
     ],
   };
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/cis.ac.ma/', label: 'Facebook' },
-    { icon: Instagram, href: 'https://www.instagram.com/cis_tangier/', label: 'Instagram' },
-    { icon: Linkedin, href: 'https://ma.linkedin.com/company/canadian-international-school-of-tangier', label: 'LinkedIn' },
+    { icon: Facebook, href: settings.facebookUrl, label: 'Facebook' },
+    { icon: Instagram, href: settings.instagramUrl, label: 'Instagram' },
+    { icon: Linkedin, href: settings.linkedinUrl, label: 'LinkedIn' },
   ];
 
   return (
@@ -79,7 +70,7 @@ const FooterModern = () => {
                 {/* Logo Image */}
                 {!logoError ? (
                   <img
-                    src="/images/logo.webp"
+                    src={images.logo}
                     alt="CIST logo"
                     style={{
                       height: 'clamp(56px, 10vw, 90px)',
@@ -213,77 +204,6 @@ const FooterModern = () => {
                 </ul>
               </div>
             ))}
-          </div>
-
-          {/* Newsletter */}
-          <div style={{
-            marginTop: '3rem',
-            padding: '2rem',
-            backgroundColor: '#2a2a2a',
-            borderRadius: '20px',
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1.5rem',
-          }}>
-            <div>
-              <h4 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.25rem' }}>
-                {t('footer.newsletter')}
-              </h4>
-              <p style={{ color: '#888', fontSize: '0.9rem', margin: 0 }}>
-                {t('footer.newsletterDesc')}
-              </p>
-            </div>
-
-            <form onSubmit={handleSubscribe} className="footer-newsletter-form" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <div style={{ position: 'relative', flex: '1 1 200px' }}>
-                <Mail size={18} style={{
-                  position: 'absolute',
-                  left: '1rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  color: '#888',
-                }} />
-                <input
-                  type="email"
-                  placeholder={t('footer.emailPlaceholder')}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="footer-newsletter-input"
-                  style={{
-                    padding: '0.875rem 1rem 0.875rem 2.75rem',
-                    borderRadius: '12px',
-                    border: 'none',
-                    backgroundColor: '#1a1a1a',
-                    color: 'white',
-                    width: '100%',
-                    fontSize: '0.95rem',
-                  }}
-                />
-              </div>
-              <button
-                type="submit"
-                style={{
-                  padding: '0.875rem 1.5rem',
-                  backgroundColor: isSubscribed ? '#4CAF50' : '#D32F2F',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '12px',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                {isSubscribed ? t('footer.subscribed') : t('footer.subscribe')}
-                <ArrowRight size={18} />
-              </button>
-            </form>
           </div>
         </div>
       </div>

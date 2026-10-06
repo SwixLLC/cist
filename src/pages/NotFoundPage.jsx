@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Home, AlertTriangle, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Home, AlertTriangle } from 'lucide-react';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -133,40 +134,7 @@ const NotFoundPage = () => {
         </div>
       </div>
       
-      {/* Floating WhatsApp Button */}
-      <a
-        href="https://api.whatsapp.com/send/?phone=212808570841&text&type=phone_number&app_absent=0"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contact us on WhatsApp"
-        style={{
-          position: 'fixed',
-          bottom: '30px',
-          right: '30px',
-          width: '60px',
-          height: '60px',
-          backgroundColor: '#25D366',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
-          cursor: 'pointer',
-          zIndex: 9999,
-          textDecoration: 'none',
-          transition: 'all 0.3s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 6px 30px rgba(37, 211, 102, 0.6)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 20px rgba(37, 211, 102, 0.4)';
-        }}
-      >
-        <MessageCircle size={32} color="white" fill="white" />
-      </a>
+      <WhatsAppButton />
     </div>
   );
 };

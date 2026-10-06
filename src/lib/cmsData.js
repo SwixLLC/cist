@@ -1,72 +1,7 @@
 import { supabase, supabaseUrl } from './supabase';
+import { DEFAULT_NEWS, DEFAULT_EVENTS, DEFAULT_GALLERY } from './defaultContent';
 
-export const DEFAULT_NEWS = [
-  {
-    id: 1,
-    category: 'announcements',
-    categoryLabel: 'Announcement',
-    date: 'June 1, 2026',
-    readTime: '4 min',
-    title: 'Holidays 2027 - Canadian International School Tangier',
-    excerpt: 'View all school holidays, breaks, and important dates for the 2027 academic year at CIST.',
-    author: 'Admin Office',
-    image: '/images/events/Holidays.webp',
-    content: 'The holidays calendar for 2027 is now available for Canadian International School Tangier. Plan your family vacations and important events around school holidays, breaks, and professional development days.',
-  },
-  {
-    id: 2,
-    category: 'achievements',
-    categoryLabel: 'Achievement',
-    date: 'April 15, 2024',
-    readTime: '3 min',
-    title: 'Student Wins National Robotics Competition',
-    excerpt: 'One of our talented students brought home the trophy from the National Robotics Championship.',
-    author: 'Dr. Sarah Ahmed',
-    image: '/images/events/achievment1.webp',
-    content: 'We are thrilled to announce that one of our outstanding students has won the National Robotics Competition! This remarkable achievement showcases the excellence of our STEM and robotics program. The student demonstrated exceptional programming skills, engineering creativity, and problem-solving abilities. Congratulations to our champion!',
-  },
-  {
-    id: 3,
-    category: 'achievements',
-    categoryLabel: 'Achievement',
-    date: 'March 20, 2024',
-    readTime: '3 min',
-    title: 'CIST Students Win Ramadan Mini Football Tournament',
-    excerpt: 'Our students beat competing schools and brought home the championship trophy from the Ramadan Mini Football Tournament.',
-    author: 'Coach Yassir',
-    image: '/images/events/sport10.webp',
-    content: 'Congratulations to our amazing students for winning the Ramadan Mini Football Tournament! CIST faced off against several other schools in a thrilling competition, and our team rose to the challenge with exceptional skill, teamwork, and sportsmanship. Competing against strong opponents, they delivered outstanding performances in every match. This victory is a testament to their dedication and hard work in training. We are incredibly proud of their achievement!',
-  },
-  {
-    id: 4,
-    category: 'events',
-    categoryLabel: 'Event',
-    date: 'May 21, 2026',
-    readTime: '3 min',
-    title: 'CIST × Baraat Al Boughaz — Recreational Day at Medina Forest',
-    excerpt: 'CIST partnered with Baraat Al Boughaz Association to organise a fun-filled outdoor day for our students at Medina Forest.',
-    author: 'Admin Office',
-    image: '/images/events/collab.webp',
-    content: 'On Thursday, May 21, 2026, CIST students enjoyed a special recreational day at Medina Forest in collaboration with the Baraat Al Boughaz Association. The programme was packed with activities designed to nurture teamwork, creativity, and joy — including flag salute, sports competitions, group games, a shared breakfast, artistic creations, a drawing competition, and an educational nature lab. It was a wonderful day that brought our school community closer together while connecting students with the beautiful natural environment of Tangier.',
-  },
-];
-
-export const DEFAULT_EVENTS = [
-  { id: 1, date: 'May 20', title: 'School Trip', time: 'All Day' },
-  { id: 2, date: 'Jun 19', title: 'Graduation Ceremony', time: '10:00 AM - 2:00 PM' },
-];
-
-export const DEFAULT_GALLERY = [
-  { id: 13, src: '/images/sport/match.webp', category: 'sports', title: 'Football Match' },
-  { id: 14, src: '/images/sport/plan.webp', category: 'sports', title: 'Team Strategy' },
-  { id: 15, src: '/images/sport/plan1.webp', category: 'sports', title: 'Game Plan' },
-  { id: 16, src: '/images/sport/team%20C.webp', category: 'sports', title: 'Team C' },
-  { id: 1, src: '/images/sport/sport1.webp', category: 'sports', title: 'Football Tournament' },
-  { id: 2, src: '/images/sport/sport2.webp', category: 'sports', title: 'Football Match' },
-  { id: 3, src: '/images/sport/sport3.webp', category: 'sports', title: 'Football Championship' },
-  { id: 101, src: '/images/community/easter1.webp', category: 'community', title: 'Easter Celebration' },
-  { id: 102, src: '/images/community/students.webp', category: 'community', title: 'Community Service' },
-];
+export { DEFAULT_NEWS, DEFAULT_EVENTS };
 
 // --- NEWS API ---
 export async function getNews() {
@@ -175,13 +110,16 @@ export async function getEvents() {
 }
 
 export async function saveEvent(eventItem) {
+  let isSavedInSupabase = false;
   try {
     if (eventItem.id && typeof eventItem.id === 'string' && isNaN(Number(eventItem.id))) {
-      await supabase.from('upcoming_events').update(eventItem).eq('id', eventItem.id);
+      const { error } = await supabase.from('upcoming_events').update(eventItem).eq('id', eventItem.id);
+      if (!error) isSavedInSupabase = true;
     } else {
       const itemToInsert = { ...eventItem };
       if (typeof itemToInsert.id === 'number') delete itemToInsert.id;
-      await supabase.from('upcoming_events').insert([itemToInsert]);
+      const { error } = await supabase.from('upcoming_events').insert([itemToInsert]);
+      if (!error) isSavedInSupabase = true;
     }
   } catch (e) {
     console.warn('Could not save to Supabase upcoming_events', e);
@@ -201,7 +139,7 @@ export async function saveEvent(eventItem) {
   }
   localStorage.setItem('cist_custom_events', JSON.stringify(updated));
   window.dispatchEvent(new Event('cist_content_updated'));
-  return true;
+  return { success: true, savedInSupabase: isSavedInSupabase };
 }
 
 export async function deleteEvent(id) {
@@ -245,19 +183,31 @@ export async function getGallery() {
 }
 
 export async function saveGalleryItem(galleryItem) {
+  let isSavedInSupabase = false;
   try {
-    const itemToInsert = { ...galleryItem };
-    if (typeof itemToInsert.id === 'number') delete itemToInsert.id;
-    await supabase.from('gallery_photos').insert([itemToInsert]);
+    if (galleryItem.id && typeof galleryItem.id === 'string' && isNaN(Number(galleryItem.id))) {
+      const { error } = await supabase.from('gallery_photos').update(galleryItem).eq('id', galleryItem.id);
+      if (!error) isSavedInSupabase = true;
+    } else {
+      const itemToInsert = { ...galleryItem };
+      if (typeof itemToInsert.id === 'number') delete itemToInsert.id;
+      const { error } = await supabase.from('gallery_photos').insert([itemToInsert]);
+      if (!error) isSavedInSupabase = true;
+    }
   } catch (e) {
     console.warn('Could not save to Supabase gallery_photos', e);
   }
 
   const current = await getGallery();
-  const updated = [{ ...galleryItem, id: galleryItem.id || Date.now() }, ...current];
+  let updated;
+  if (galleryItem.id && current.some((g) => g.id === galleryItem.id)) {
+    updated = current.map((g) => (g.id === galleryItem.id ? { ...g, ...galleryItem } : g));
+  } else {
+    updated = [{ ...galleryItem, id: galleryItem.id || Date.now() }, ...current];
+  }
   localStorage.setItem('cist_custom_gallery', JSON.stringify(updated));
   window.dispatchEvent(new Event('cist_content_updated'));
-  return true;
+  return { success: true, savedInSupabase: isSavedInSupabase };
 }
 
 export async function deleteGalleryItem(id) {
@@ -275,13 +225,13 @@ export async function deleteGalleryItem(id) {
 }
 
 // --- SUPABASE STORAGE (PHOTOS / IMAGES) ---
-export const STORAGE_BUCKET = 'website-images';
+const STORAGE_BUCKET = 'website-images';
 
 export async function uploadImage(file) {
   const sanitizedName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
   const fileName = `${Date.now()}_${sanitizedName}`;
 
-  const { data, error } = await supabase.storage
+  const { error } = await supabase.storage
     .from(STORAGE_BUCKET)
     .upload(fileName, file, {
       cacheControl: '3600',
@@ -337,20 +287,47 @@ export async function deleteUploadedImage(fileName) {
   return true;
 }
 
-// Check database table availability
-export async function checkTablesAvailability() {
-  try {
-    const { error: newsErr } = await supabase.from('news_items').select('id').limit(1);
-    const { error: eventsErr } = await supabase.from('upcoming_events').select('id').limit(1);
-    const { error: galleryErr } = await supabase.from('gallery_photos').select('id').limit(1);
+// --- SITE CONTENT (page images, school info, text overrides) ---
+// One row per key in the `site_content` table: 'images', 'settings', 'translations'.
+const SITE_CACHE = 'cist_site_content';
 
-    return {
-      news: !newsErr,
-      events: !eventsErr,
-      gallery: !galleryErr,
-      allReady: !newsErr && !eventsErr && !galleryErr,
-    };
+const readSiteCache = () => {
+  try {
+    return JSON.parse(localStorage.getItem(SITE_CACHE)) || {};
   } catch {
-    return { news: false, events: false, gallery: false, allReady: false };
+    return {};
   }
+};
+
+export async function getSiteContent() {
+  try {
+    const { data, error } = await supabase.from('site_content').select('key, value');
+    if (!error && data) {
+      const content = Object.fromEntries(data.map((row) => [row.key, row.value]));
+      localStorage.setItem(SITE_CACHE, JSON.stringify(content));
+      return content;
+    }
+  } catch (e) {
+    console.warn('Supabase site_content table not reachable, using cached content', e);
+  }
+  return readSiteCache();
+}
+
+/** Cached copy for the first paint, before Supabase answers. */
+export const getCachedSiteContent = readSiteCache;
+
+export async function saveSiteContent(key, value) {
+  let isSavedInSupabase = false;
+  try {
+    const { error } = await supabase
+      .from('site_content')
+      .upsert({ key, value, updated_at: new Date().toISOString() });
+    if (!error) isSavedInSupabase = true;
+  } catch (e) {
+    console.warn('Could not save to Supabase site_content', e);
+  }
+
+  localStorage.setItem(SITE_CACHE, JSON.stringify({ ...readSiteCache(), [key]: value }));
+  window.dispatchEvent(new Event('cist_content_updated'));
+  return { success: true, savedInSupabase: isSavedInSupabase };
 }

@@ -44,3 +44,12 @@ coverage
 
 # Vite temp files
 *.timestamp-*.mjs
+
+# Local AI tooling (skills, hooks, design review screenshots)
+.claude/
+.agents/
+.codex/
+.impeccable/
+skills-lock.json
+CLAUDE.md
+graphify-out/

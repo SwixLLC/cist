@@ -6,7 +6,8 @@
     "campus": "Campus",
     "news": "News",
     "contact": "Contact",
-    "register": "Register Now"
+    "register": "Register Now",
+    "admissions": "Admissions"
   },
   "hero": {
     "line1": "Excellence in",
@@ -14,13 +15,13 @@
     "subtitle": "Canadian International School Tangier — Nurturing global citizens with high international standards",
     "register": "Register Now",
     "tour": "Book a Tour",
-    "years": "Years",
-    "students": "Students",
-    "teachers": "Teachers",
-    "englishCourses": "English Courses"
+    "fact_founded": "Founded in 2010",
+    "fact_english": "100% English instruction",
+    "fact_grades": "Kindergarten to Grade 12",
+    "fact_city": "Tangier, Morocco",
+    "slide": "Show photo {{n}}"
   },
   "about": {
-    "label": "About Us",
     "title": "Shaping Tomorrow's Leaders Today",
     "description": "Canadian International School Tangier stands as a beacon of educational excellence in North Africa, offering a comprehensive curriculum aligned with international standards that prepares students for global success.",
     "ontarioLabel": "100% English Courses",
@@ -28,13 +29,9 @@
     "ministryLabel": "International Standards",
     "ministryDesc": "Curriculum aligned with international standards",
     "classesLabel": "Small Classes",
-    "classesDesc": "10:1 student to teacher ratio",
+    "classesDesc": "Personal attention for every student",
     "holisticLabel": "Holistic Care",
     "holisticDesc": "Focus on overall development",
-    "nationalities": "Nationalities",
-    "university": "University Acceptance",
-    "ratio": "Student Ratio",
-    "founded": "Founded",
     "worldClassTitle": "A World-Class Education in Tangier",
     "worldClassDesc": "Our 100% English courses ensure students develop strong academic and communication skills. We combine innovative teaching methods with traditional values to create well-rounded, confident individuals.",
     "excellenceLabel": "Excellence",
@@ -46,7 +43,6 @@
     "valuesTitle": "Our Core Values"
   },
   "academics": {
-    "label": "Academics",
     "title": "Academic Programs",
     "subtitle": "Discover our comprehensive educational programs designed to nurture excellence from early childhood through university preparation.",
     "kindergartenTitle": "Greenbridge Academy",
@@ -63,7 +59,6 @@
     "highDesc": "Preparing students for global success with a curriculum aligned with international standards and university preparation.",
     "f_english": "100% English instruction",
     "f_ontario": "International educational standards",
-    "f_ministry": "Aligned with international standards",
     "f_stem": "STEM integration",
     "f_project": "Project-based learning",
     "f_critical": "Critical thinking development",
@@ -74,21 +69,8 @@
     "f_play": "Play-based learning approach",
     "f_social": "Social and emotional development",
     "f_opening": "Nurturing environment",
-    "f_foundation": "International standards foundation",
-    "keyFeatures": "Key Features:",
-    "showLess": "Show Less",
-    "learnMore": "Learn More",
-    "viewCurriculum": "View Curriculum",
-    "ontarioLabel": "100% English Courses",
-    "ontarioDesc": "100% English instruction aligned with international standards",
-    "excellenceLabel": "Excellence",
-    "excellenceDesc": "Academic rigor and innovation",
-    "flexibleLabel": "Flexible Programs",
-    "flexibleDesc": "After-school activities and support",
-    "studentsLabel": "Students",
-    "teachersLabel": "Teachers",
-    "ratioLabel": "Ratio",
-    "comingLabel": "Coming"
+    "stagesLabel": "School stages",
+    "apply": "Apply for this stage"
   },
   "campus": {
     "label": "Campus Life",
@@ -100,13 +82,33 @@
     "academics": "Academics",
     "community": "Community",
     "sportsTitle": "Sports and Athletics",
-    "sportsItems": ["Basketball", "Soccer", "Swimming", "Track and Field"],
+    "sportsItems": [
+      "Basketball",
+      "Soccer",
+      "Swimming",
+      "Track and Field"
+    ],
     "artsTitle": "Arts and Culture",
-    "artsItems": ["Visual Arts", "Music", "Drama", "Dance"],
+    "artsItems": [
+      "Visual Arts",
+      "Music",
+      "Drama",
+      "Dance"
+    ],
     "clubsTitle": "Academic Clubs",
-    "clubsItems": ["Robotics", "Debate", "Chess", "Science Club"],
+    "clubsItems": [
+      "Robotics",
+      "Debate",
+      "Chess",
+      "Science Club"
+    ],
     "serviceTitle": "Community Service",
-    "serviceItems": ["Volunteering", "Environmental", "Charity", "Mentoring"],
+    "serviceItems": [
+      "Volunteering",
+      "Environmental",
+      "Charity",
+      "Mentoring"
+    ],
     "viewMore": "View More",
     "viewLess": "View Less"
   },
@@ -122,12 +124,11 @@
     "showLess": "Show Less",
     "viewMore": "View More",
     "viewLess": "View Less",
-    "viewAll": "View All Events",
     "upcoming": "Upcoming Events",
-    "minRead": "min read"
+    "minRead": "min read",
+    "close": "Close"
   },
   "contact": {
-    "label": "Get In Touch",
     "title": "Contact Us",
     "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
     "addressLabel": "Address",
@@ -156,10 +157,8 @@
     "whyTitle": "Why Choose CIST?",
     "why1": "International educational standards",
     "why2": "100% English courses",
-    "why3": "Small class sizes (10:1 ratio)",
     "why4": "State-of-the-art facilities",
     "why5": "International exchange programs",
-    "why6": "100% university acceptance rate",
     "followUs": "Follow Us",
     "nameError": "Name is required.",
     "emailError": "Email is required.",
@@ -177,21 +176,14 @@
     "campus": "Campus Life",
     "news": "News and Events",
     "contact": "Contact",
-    "newsletter": "Subscribe to Our Newsletter",
-    "newsletterDesc": "Stay updated with the latest news and events from CIST.",
-    "emailPlaceholder": "Enter your email",
-    "subscribe": "Subscribe",
-    "subscribed": "Subscribed!",
     "rights": "Canadian International School Tangier. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
   "map": {
-    "label": "Find Us",
     "title": "Visit Our Campus",
     "subtitle": "Located in the beautiful city of Tangier, our campus is easily accessible and welcomes visitors for tours.",
-    "directions": "Get Directions",
-    "openMaps": "Open in Google Maps"
+    "directions": "Get Directions"
   },
   "enrollment": {
     "title": "Pre-Registration",
@@ -223,5 +215,18 @@
     "successMsg": "Thank you for your interest in Canadian International School Tangier. We have received your pre-registration and will contact you within 24-48 hours.",
     "returnHome": "Return to Home",
     "errorMsg": "There was an error submitting the form. Please try again."
+  },
+  "admissions": {
+    "title": "How to join CIST",
+    "subtitle": "Three simple steps to enrol your child.",
+    "step1Title": "Get in touch or visit",
+    "step1Desc": "Ask us your questions by phone, WhatsApp or the contact form, or book a visit to see the campus.",
+    "step2Title": "Apply online",
+    "step2Desc": "Fill in the online registration form for your child.",
+    "step3Title": "We follow up",
+    "step3Desc": "Our admissions team contacts you about the next steps.",
+    "apply": "Apply online",
+    "whatsapp": "Chat on WhatsApp",
+    "call": "Call us"
   }
 }

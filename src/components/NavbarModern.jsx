@@ -3,11 +3,13 @@ import { Menu, X, GraduationCap } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useSite } from '../lib/siteContent';
 
 const NavbarModern = ({ scrolled }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
+  const { images } = useSite();
   const isHomePage = location.pathname === '/';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -19,12 +21,13 @@ const NavbarModern = ({ scrolled }) => {
     { name: t('nav.academics'), href: '#academics' },
     { name: t('nav.campus'), href: '#campus-life' },
     { name: t('nav.news'), href: '#news' },
+    { name: t('nav.admissions'), href: '#admissions' },
     { name: t('nav.contact'), href: '#contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'academics', 'campus-life', 'news', 'contact', 'map-section'];
+      const sections = ['home', 'about', 'academics', 'campus-life', 'news', 'admissions', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -77,7 +80,7 @@ const NavbarModern = ({ scrolled }) => {
           >
             {!logoError ? (
               <img
-                src="/images/logo.webp"
+                src={images.logo}
                 alt="CIST"
                 style={{
                   height: 'clamp(56px, 10vw, 90px)',
