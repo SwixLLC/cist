@@ -18,8 +18,8 @@ const NewsModern = () => {
   useEffect(() => {
     const loadContent = async () => {
       const [news, events] = await Promise.all([getNews(), getEvents()]);
-      if (news && news.length > 0) setNewsItems(news);
-      if (events && events.length > 0) setUpcomingEvents(events);
+      if (Array.isArray(news)) setNewsItems(news);
+      if (Array.isArray(events)) setUpcomingEvents(events);
     };
     loadContent();
     window.addEventListener('cist_content_updated', loadContent);
@@ -101,26 +101,28 @@ const NewsModern = () => {
             )}
           </div>
 
-          <aside className="lp-events">
-            <h3>{t('news.upcoming')}</h3>
-            <ol>
-              {upcomingEvents.map((event) => {
-                const [mon, day] = (event.date || '').split(' ');
-                return (
-                  <li key={event.id ?? `${event.date}-${event.title}`}>
-                    <div className="lp-date" aria-hidden="true">
-                      <b>{mon}</b>
-                      <span>{day}</span>
-                    </div>
-                    <div>
-                      <strong>{event.title}</strong>
-                      <small>{event.date} · {event.time}</small>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-          </aside>
+          {upcomingEvents.length > 0 && (
+            <aside className="lp-events">
+              <h3>{t('news.upcoming')}</h3>
+              <ol>
+                {upcomingEvents.map((event) => {
+                  const [mon, day] = (event.date || '').split(' ');
+                  return (
+                    <li key={event.id ?? `${event.date}-${event.title}`}>
+                      <div className="lp-date" aria-hidden="true">
+                        <b>{mon}</b>
+                        <span>{day}</span>
+                      </div>
+                      <div>
+                        <strong>{event.title}</strong>
+                        <small>{event.date} · {event.time}</small>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </aside>
+          )}
         </div>
       </div>
 

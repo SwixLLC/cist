@@ -96,7 +96,7 @@ const NavbarModern = ({ scrolled }) => {
                 style={{
                   width: 'clamp(100px, 18vw, 160px)',
                   height: 'clamp(56px, 10vw, 90px)',
-                  background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+                  background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -119,7 +119,7 @@ const NavbarModern = ({ scrolled }) => {
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
                 style={{
-                  color: activeSection === item.href.slice(1) ? '#D32F2F' : scrolled ? '#333' : '#fff',
+                  color: activeSection === item.href.slice(1) ? 'var(--canadian-red)' : scrolled ? '#333' : '#fff',
                   fontWeight: activeSection === item.href.slice(1) ? 600 : 500,
                   background: 'none',
                   border: 'none',
@@ -145,7 +145,7 @@ const NavbarModern = ({ scrolled }) => {
             <button
               onClick={() => navigate('/enroll')}
               style={{
-                background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+                background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
                 color: '#fff',
                 padding: '0.6rem 1.5rem',
                 borderRadius: '25px',
@@ -153,16 +153,16 @@ const NavbarModern = ({ scrolled }) => {
                 fontWeight: 600,
                 cursor: 'pointer',
                 marginLeft: '0.5rem',
-                boxShadow: '0 4px 15px rgba(211,47,47,0.3)',
+                boxShadow: '0 4px 15px color-mix(in srgb, var(--canadian-red) 30%, transparent)',
                 transition: 'all 0.3s ease',
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(211,47,47,0.4)';
+                e.target.style.boxShadow = '0 6px 20px color-mix(in srgb, var(--canadian-red) 40%, transparent)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(211,47,47,0.3)';
+                e.target.style.boxShadow = '0 4px 15px color-mix(in srgb, var(--canadian-red) 30%, transparent)';
               }}
             >
               {t('nav.register')}
@@ -211,10 +211,10 @@ const NavbarModern = ({ scrolled }) => {
                 style={{
                   padding: '0.875rem 1rem',
                   textAlign: 'left',
-                  background: activeSection === item.href.slice(1) ? '#FFF5F5' : 'transparent',
+                  background: activeSection === item.href.slice(1) ? 'var(--canadian-red-wash)' : 'transparent',
                   border: 'none',
                   fontSize: '1rem',
-                  color: activeSection === item.href.slice(1) ? '#D32F2F' : '#333',
+                  color: activeSection === item.href.slice(1) ? 'var(--canadian-red)' : '#333',
                   fontWeight: activeSection === item.href.slice(1) ? 600 : 500,
                   cursor: 'pointer',
                   borderRadius: '8px',
@@ -230,7 +230,7 @@ const NavbarModern = ({ scrolled }) => {
                 setIsMenuOpen(false);
               }}
               style={{
-                background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+                background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
                 color: '#fff',
                 padding: '0.875rem',
                 borderRadius: '12px',

@@ -30,21 +30,21 @@ const NotFoundPage = () => {
         <div style={{
           width: '100px',
           height: '100px',
-          backgroundColor: '#FFF5F5',
+          backgroundColor: 'var(--canadian-red-wash)',
           borderRadius: '50%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 1.5rem'
         }}>
-          <AlertTriangle size={50} color="#D32F2F" />
+          <AlertTriangle size={50} color="var(--canadian-red)" />
         </div>
         
         <h1 style={{ 
           fontSize: '4rem', 
           fontWeight: 700, 
           marginBottom: '0.5rem', 
-          color: '#D32F2F',
+          color: 'var(--canadian-red)',
           fontFamily: 'Playfair Display, serif'
         }}>
           404
@@ -77,7 +77,7 @@ const NotFoundPage = () => {
           <button
             onClick={() => navigate('/')}
             style={{
-              background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+              background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
               color: 'white',
               padding: '1rem 2rem',
               borderRadius: '50px',
@@ -92,7 +92,7 @@ const NotFoundPage = () => {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 25px rgba(211,47,47,0.4)';
+              e.currentTarget.style.boxShadow = '0 8px 25px color-mix(in srgb, var(--canadian-red) 40%, transparent)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
@@ -107,10 +107,10 @@ const NotFoundPage = () => {
             onClick={() => navigate(-1)}
             style={{
               backgroundColor: 'transparent',
-              color: '#D32F2F',
+              color: 'var(--canadian-red)',
               padding: '1rem 2rem',
               borderRadius: '50px',
-              border: '2px solid #D32F2F',
+              border: '2px solid var(--canadian-red)',
               fontSize: '1rem',
               fontWeight: 600,
               cursor: 'pointer',
@@ -120,7 +120,7 @@ const NotFoundPage = () => {
               transition: 'all 0.3s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FFF5F5';
+              e.currentTarget.style.backgroundColor = 'var(--canadian-red-wash)';
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import NavbarModern from './components/NavbarModern';
 import HeroModern from './components/HeroModern';
@@ -13,11 +13,12 @@ import FooterModern from './components/FooterModern';
 import WhatsAppButton from './components/WhatsAppButton';
 import { SiteContentProvider } from './lib/siteContent';
 import './components/landing.css';
-import EnrollmentPage from './pages/EnrollmentPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
-import NotFoundPage from './pages/NotFoundPage';
-import AdminPanelPage from './pages/AdminPanelPage';
+// Secondary pages load on demand, so home page visitors don't download the admin panel
+const EnrollmentPage = lazy(() => import('./pages/EnrollmentPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const AdminPanelPage = lazy(() => import('./pages/AdminPanelPage'));
 
 function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -66,6 +67,7 @@ function App() {
   return (
     <SiteContentProvider>
       <Router>
+        <Suspense fallback={<div style={{ minHeight: '100dvh' }} aria-busy="true" />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/enroll" element={<EnrollmentPage />} />
@@ -75,6 +77,7 @@ function App() {
           <Route path="/admin" element={<Navigate to="/admin-panel" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </Suspense>
       </Router>
     </SiteContentProvider>
   );

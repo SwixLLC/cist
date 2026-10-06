@@ -1,10 +1,9 @@
 /* Landing page — shared layout, section and component styles (lp- prefix) */
 
 :root {
-  --lp-red: #d32f2f;
-  --lp-red-dark: #b71c1c;
-  --lp-red-deep: #8f1a1a;
-  --lp-red-wash: #fdf0ef;
+  --lp-red: var(--canadian-red);
+  --lp-red-dark: var(--canadian-red-dark);
+  --lp-red-wash: var(--canadian-red-wash);
   --lp-ink: #1a1a1a;
   --lp-text: #4a4a4a;
   --lp-muted: #6f6f6f;
@@ -94,7 +93,7 @@
 .lp-btn--primary {
   background: var(--lp-red);
   color: #fff;
-  box-shadow: 0 6px 18px -6px rgba(183, 28, 28, 0.55);
+  box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--lp-red-dark) 55%, transparent);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -111,7 +110,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .lp-btn--light:hover {
-    background: #fff4f3;
+    background: var(--lp-red-wash);
     color: var(--lp-red-dark);
   }
 }
@@ -965,7 +964,7 @@
 }
 
 .lp-admissions .lp-checks svg {
-  color: #ffb4ac;
+  color: color-mix(in srgb, var(--lp-red) 30%, white);
 }
 
 .lp-admissions__ctas {
@@ -1183,7 +1182,7 @@ textarea.lp-input {
 .lp-input:focus {
   outline: none;
   border-color: var(--lp-red);
-  box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.12);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--lp-red) 12%, transparent);
 }
 
 .lp-input[aria-invalid='true'] {

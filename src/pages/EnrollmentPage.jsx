@@ -103,7 +103,7 @@ const EnrollmentPage = () => {
           <button
             onClick={() => navigate('/')}
             style={{
-              background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+              background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
               color: 'white',
               padding: '1rem 2rem',
               borderRadius: '50px',
@@ -130,7 +130,7 @@ const EnrollmentPage = () => {
       
       {/* Header - with margin to clear navbar (logo is 100px tall) */}
       <div style={{
-        background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+        background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
         color: 'white',
         padding: '2rem 0',
         marginTop: '100px'
@@ -176,16 +176,17 @@ const EnrollmentPage = () => {
             boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
           }}>
             <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', color: '#1a1a1a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <User size={24} color="#D32F2F" />
+              <User size={24} color="var(--canadian-red)" />
               {t('enrollment.studentInfo')}
             </h2>
 
             <div style={{ display: 'grid', gap: '1rem', marginBottom: '2rem' }}>
               <div>
-                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-studentName">
                   {t('enrollment.fullName')}
                 </label>
                 <input
+                  id="enroll-studentName"
                   type="text"
                   name="studentName"
                   value={formData.studentName}
@@ -204,10 +205,11 @@ const EnrollmentPage = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-dateOfBirth">
                     {t('enrollment.dob')}
                   </label>
                   <input
+                  id="enroll-dateOfBirth"
                     type="date"
                     name="dateOfBirth"
                     value={formData.dateOfBirth}
@@ -223,10 +225,11 @@ const EnrollmentPage = () => {
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-gender">
                     {t('enrollment.gender')}
                   </label>
                   <select
+                  id="enroll-gender"
                     name="gender"
                     value={formData.gender}
                     onChange={handleInputChange}
@@ -247,10 +250,11 @@ const EnrollmentPage = () => {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-gradeApplying">
                   {t('enrollment.grade')}
                 </label>
                 <select
+                  id="enroll-gradeApplying"
                   name="gradeApplying"
                   value={formData.gradeApplying}
                   onChange={handleInputChange}
@@ -282,16 +286,17 @@ const EnrollmentPage = () => {
             </div>
 
             <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', color: '#1a1a1a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Users size={24} color="#D32F2F" />
+              <Users size={24} color="var(--canadian-red)" />
               {t('enrollment.parentInfo')}
             </h2>
 
             <div style={{ display: 'grid', gap: '1rem', marginBottom: '2rem' }}>
               <div>
-                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-parentName">
                   {t('enrollment.parentName')}
                 </label>
                 <input
+                  id="enroll-parentName"
                   type="text"
                   name="parentName"
                   value={formData.parentName}
@@ -310,11 +315,12 @@ const EnrollmentPage = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-phone">
                     <Phone size={14} style={{ display: 'inline', marginRight: '0.25rem' }} />
                     {t('enrollment.phone')}
                   </label>
                   <input
+                  id="enroll-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -331,10 +337,11 @@ const EnrollmentPage = () => {
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                  <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-whatsapp">
                     {t('enrollment.whatsapp')}
                   </label>
                   <input
+                  id="enroll-whatsapp"
                     type="tel"
                     name="whatsapp"
                     value={formData.whatsapp}
@@ -352,11 +359,12 @@ const EnrollmentPage = () => {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }}>
+                <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.5rem', color: '#333' }} htmlFor="enroll-email">
                   <Mail size={14} style={{ display: 'inline', marginRight: '0.25rem' }} />
                   {t('enrollment.emailLabel')}
                 </label>
                 <input
+                  id="enroll-email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -383,7 +391,7 @@ const EnrollmentPage = () => {
                   checked={agreementChecked}
                   onChange={(e) => setAgreementChecked(e.target.checked)}
                   required
-                  style={{ marginTop: '0.25rem', width: '18px', height: '18px', cursor: 'pointer', accentColor: '#D32F2F' }}
+                  style={{ marginTop: '0.25rem', width: '18px', height: '18px', cursor: 'pointer', accentColor: 'var(--canadian-red)' }}
                 />
                 <span style={{ fontSize: '0.95rem', color: '#333', lineHeight: 1.5 }}>
                   {t('enrollment.agreementText')}{' '}
@@ -392,7 +400,7 @@ const EnrollmentPage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      color: '#D32F2F',
+                      color: 'var(--canadian-red)',
                       fontWeight: 600,
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -410,7 +418,7 @@ const EnrollmentPage = () => {
             </div>
 
             {submitError && (
-              <p role="alert" style={{ color: '#D32F2F', fontSize: '0.875rem', marginBottom: '1rem' }}>
+              <p role="alert" style={{ color: 'var(--canadian-red)', fontSize: '0.875rem', marginBottom: '1rem' }}>
                 {submitError}
               </p>
             )}
@@ -421,7 +429,7 @@ const EnrollmentPage = () => {
               style={{
                 width: '100%',
                 background: agreementChecked 
-                  ? 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)' 
+                  ? 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)' 
                   : 'linear-gradient(135deg, #ccc 0%, #999 100%)',
                 color: 'white',
                 padding: '1rem',
@@ -436,7 +444,7 @@ const EnrollmentPage = () => {
               onMouseEnter={(e) => {
                 if (agreementChecked) {
                   e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 8px 20px rgba(211, 47, 47, 0.3)';
+                  e.target.style.boxShadow = '0 8px 20px color-mix(in srgb, var(--canadian-red) 30%, transparent)';
                 }
               }}
               onMouseLeave={(e) => {

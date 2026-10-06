@@ -24,7 +24,7 @@ const CampusLifeModern = () => {
   useEffect(() => {
     const loadGallery = async () => {
       const items = await getGallery();
-      if (items && items.length > 0) setGalleryItems(items);
+      if (Array.isArray(items)) setGalleryItems(items);
     };
     loadGallery();
     window.addEventListener('cist_content_updated', loadGallery);

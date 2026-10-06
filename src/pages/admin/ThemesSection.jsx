@@ -48,7 +48,7 @@ export default function ThemesSection() {
       <header className="adm-head">
         <div>
           <h1>Themes</h1>
-          <p>Add a seasonal touch to the top of the home page: a greeting, a matching colour and light decorations. The rest of the website stays the same.</p>
+          <p>Give the website a seasonal look: the theme’s colour is used for buttons, links and highlights across the site, and the top banner gets a greeting and light decorations. Switch it off to go back to the school red.</p>
         </div>
         <div className="adm-head__actions">
           <a className="adm-btn" href="/" target="_blank" rel="noreferrer"><ExternalLink size={16} /> View website</a>

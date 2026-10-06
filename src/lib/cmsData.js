@@ -19,7 +19,7 @@ export async function getNews() {
       .select('*')
       .order('created_at', { ascending: false });
 
-    if (!error && data && data.length > 0) {
+    if (!error && Array.isArray(data)) {
       return byNewsOrder(data);
     }
   } catch (e) {
@@ -123,7 +123,7 @@ export async function getEvents() {
       .select('*')
       .order('created_at', { ascending: false });
 
-    if (!error && data && data.length > 0) {
+    if (!error && Array.isArray(data)) {
       return pinnedFirst(data);
     }
   } catch (e) {
@@ -196,7 +196,7 @@ export async function getGallery() {
       .select('*')
       .order('created_at', { ascending: false });
 
-    if (!error && data && data.length > 0) {
+    if (!error && Array.isArray(data)) {
       return data;
     }
   } catch (e) {

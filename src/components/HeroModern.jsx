@@ -6,7 +6,7 @@ import { useSite } from '../lib/siteContent';
 import ThemeDecor from './ThemeDecor';
 
 /** Scrolls to the contact form and pre-selects "Book a visit" as the subject. */
-export const requestVisit = () => {
+const requestVisit = () => {
   window.dispatchEvent(new CustomEvent('cist:prefill-subject', { detail: 'visit' }));
   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 };

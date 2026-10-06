@@ -14,12 +14,12 @@ web
 The public site is the school's front door: trustworthy, warm and clear. The admin panel lets the admin keep that site current without a developer.
 
 ## Operating Context
-- Content lives in Supabase (`news_items`, `upcoming_events`, `gallery_photos` tables and the `website-images` storage bucket), with a localStorage fallback in `src/lib/cmsData.js`.
+- Content lives in Supabase (`news_items`, `upcoming_events`, `gallery_photos`, `site_content` tables and the `website-images` storage bucket); built-in defaults in `src/lib/defaultContent.js` are used only if Supabase can't be reached.
 - Event dates display on the public site as `Mon D` (e.g. "Jun 19"); news dates as long dates (e.g. "October 15, 2026").
 - Hosted on Hostinger (Apache) — SPA routing handled by `public/.htaccess`.
 
 ## Capabilities and Constraints
-- Admin: sign in, upload/delete pictures, create/edit/delete news, events and gallery photos.
+- Admin: sign in, reset/change password, upload/delete pictures, create/edit/delete/order news, events (with a pinned event) and gallery photos, edit page images, all texts (EN/FR/ES), school info and seasonal themes.
 - Stack: React 18 + Vite, plain CSS, lucide-react icons, framer-motion available. No new UI dependencies without reason.
 - Public site is trilingual via i18next; the admin panel is English-only.
 

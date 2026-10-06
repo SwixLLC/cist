@@ -14,13 +14,13 @@ const PrivacyPage = () => {
   const content = {
     en: {
       title: "Privacy Policy",
-      lastUpdated: "Last Updated: August 2026",
+      lastUpdated: "Last Updated: October 2026",
       intro: "Canadian International School Tangier (CIST) is committed to protecting the privacy and personal data of our students, parents, and visitors. This Privacy Policy describes how we collect, use, and safeguard your personal information when you visit our website and use our pre-registration or contact services.",
       sections: [
         {
           title: "1. Information We Collect",
           paragraphs: [
-            "We collect personal information that you voluntarily provide to us when you fill out the pre-registration form, contact forms, or subscribe to our newsletter.",
+            "We collect personal information that you voluntarily provide to us when you fill out the pre-registration form or the contact form.",
             "This information may include: student's full name, date of birth, grade applying for, parents' full names, email addresses, phone and WhatsApp numbers, and any other details you choose to share."
           ]
         },
@@ -35,7 +35,8 @@ const PrivacyPage = () => {
           title: "3. Data Security & Protection",
           paragraphs: [
             "We implement appropriate technical and organizational security measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.",
-            "We do not sell, trade, or rent your personal identification information to third parties."
+            "We do not sell, trade, or rent your personal identification information to third parties.",
+            "To run this website we use a small number of service providers: EmailJS delivers the messages you send through our forms to the school, Supabase hosts the website's content, and Google provides the fonts and the map. They only receive the information needed to provide their service."
           ]
         },
         {
@@ -60,13 +61,13 @@ const PrivacyPage = () => {
     },
     fr: {
       title: "Politique de Confidentialité",
-      lastUpdated: "Dernière mise à jour : Août 2026",
+      lastUpdated: "Dernière mise à jour : Octobre 2026",
       intro: "L'École Internationale Canadienne de Tanger (CIST) s'engage à protéger la vie privée et les données personnelles de nos élèves, parents et visiteurs. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous visitez notre site Web et utilisez nos services de pré-inscription ou de contact.",
       sections: [
         {
           title: "1. Informations que nous collectons",
           paragraphs: [
-            "Nous collectons les informations personnelles que vous nous fournissez volontairement lorsque vous remplissez le formulaire de pré-inscription, les formulaires de contact ou que vous vous abonnez à notre newsletter.",
+            "Nous collectons les informations personnelles que vous nous fournissez volontairement lorsque vous remplissez le formulaire de pré-inscription ou le formulaire de contact.",
             "Ces informations peuvent inclure : le nom complet de l'élève, sa date de naissance, le niveau d'études demandé, le nom complet des parents, les adresses e-mail, les numéros de téléphone et de WhatsApp, et tout autre détail que vous choisissez de partager."
           ]
         },
@@ -81,7 +82,8 @@ const PrivacyPage = () => {
           title: "3. Sécurité et protection des données",
           paragraphs: [
             "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, altération, divulgation ou destruction.",
-            "Nous ne vendons, n'échangeons ni ne louons vos informations d'identification personnelle à des tiers."
+            "Nous ne vendons, n'échangeons ni ne louons vos informations d'identification personnelle à des tiers.",
+            "Pour faire fonctionner ce site, nous faisons appel à quelques prestataires : EmailJS transmet à l'école les messages envoyés via nos formulaires, Supabase héberge le contenu du site, et Google fournit les polices et la carte. Ils ne reçoivent que les informations nécessaires à leur service."
           ]
         },
         {
@@ -106,13 +108,13 @@ const PrivacyPage = () => {
     },
     es: {
       title: "Política de Privacidad",
-      lastUpdated: "Última actualización: Agosto 2026",
+      lastUpdated: "Última actualización: Octubre 2026",
       intro: "La Escuela Internacional Canadiense de Tánger (CIST) se compromete a proteger la privacidad y los datos personales de nuestros estudiantes, padres y visitantes. Esta Política de Privacidad describe cómo recopilamos, utilizamos y protegemos su información personal cuando visita nuestro sitio web y utiliza nuestros servicios de preinscripción o contacto.",
       sections: [
         {
           title: "1. Información que recopilamos",
           paragraphs: [
-            "Recopilamos información personal que nos proporciona voluntariamente cuando completa el formulario de preinscripción, los formularios de contacto o se suscribe a nuestro boletín.",
+            "Recopilamos información personal que nos proporciona voluntariamente cuando completa el formulario de preinscripción o el formulario de contacto.",
             "Esta información puede incluir: nombre completo del estudiante, fecha de nacimiento, grado al que aplica, nombres completos de los padres, direcciones de correo electrónico, números de teléfono y WhatsApp, y cualquier otro detalle que decida compartir."
           ]
         },
@@ -127,7 +129,8 @@ const PrivacyPage = () => {
           title: "3. Seguridad y protección de datos",
           paragraphs: [
             "Implementamos medidas de seguridad técnicas y organizativas adecuadas para proteger sus datos personales contra el acceso no autorizado, alteración, divulgación o destrucción.",
-            "No vendemos, comercializamos ni alquilamos su información de identificación personal a terceros."
+            "No vendemos, comercializamos ni alquilamos su información de identificación personal a terceros.",
+            "Para el funcionamiento de este sitio utilizamos algunos proveedores de servicios: EmailJS entrega a la escuela los mensajes enviados a través de nuestros formularios, Supabase aloja el contenido del sitio y Google proporciona las fuentes y el mapa. Solo reciben la información necesaria para prestar su servicio."
           ]
         },
         {

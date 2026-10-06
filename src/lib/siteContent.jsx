@@ -12,7 +12,7 @@ export const BASE_TRANSLATIONS = { en, fr, es };
 const isObject = (v) => v && typeof v === 'object' && !Array.isArray(v);
 
 /** Deep-merges admin text overrides over the built-in translations. Empty strings mean "use default". */
-export function mergeTranslations(base, overrides) {
+function mergeTranslations(base, overrides) {
   if (!isObject(overrides)) return base;
   const out = { ...base };
   Object.entries(overrides).forEach(([k, v]) => {
@@ -58,6 +58,21 @@ export function SiteContentProvider({ children }) {
     return resolve(cached);
   });
 
+  // A live theme recolours the public site by overriding the brand colour variables
+  useEffect(() => {
+    const root = document.documentElement.style;
+    const vars = {
+      '--canadian-red': site.theme?.palette.primary,
+      '--canadian-red-dark': site.theme?.palette.dark,
+      '--canadian-red-light': site.theme?.palette.light,
+      '--canadian-red-wash': site.theme?.palette.wash,
+    };
+    Object.entries(vars).forEach(([name, value]) => {
+      if (value) root.setProperty(name, value);
+      else root.removeProperty(name);
+    });
+  }, [site.theme]);
+
   useEffect(() => {
     const load = async () => {
       const content = await getSiteContent();
@@ -75,6 +90,6 @@ export function SiteContentProvider({ children }) {
 export const useSite = () => useContext(SiteContext);
 
 /** "+212 80 857 0841" -> "212808570841" */
-export const digitsOnly = (phone = '') => phone.replace(/\D/g, '');
+const digitsOnly = (phone = '') => phone.replace(/\D/g, '');
 export const telHref = (phone) => `tel:+${digitsOnly(phone)}`;
 export const whatsappHref = (phone) => `https://api.whatsapp.com/send/?phone=${digitsOnly(phone)}&text&type=phone_number&app_absent=0`;

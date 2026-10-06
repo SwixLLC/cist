@@ -2,12 +2,14 @@ import { Ghost, Candy, Leaf, Moon, Star, Sparkles, Gift, Pencil, BookOpen, Backp
 
 /**
  * Seasonal themes the admin can switch on (Admin → Themes).
- * A theme only adds accents to the top banner: a greeting, an accent colour and light decorations.
+ * A theme adds a greeting and light decorations to the top banner, and recolours the public website:
+ * `palette` replaces the brand red (buttons, links, highlights); `accent` colours the banner details.
  */
 export const THEMES = {
   halloween: {
     label: 'Halloween',
     accent: '#ffa94d',
+    palette: { primary: '#c2410c', dark: '#9a3412', light: '#fed7aa', wash: '#fff4ec' },
     icon: Ghost,
     decor: [Ghost, Candy, Leaf, Leaf],
     motion: 'drift',
@@ -20,6 +22,7 @@ export const THEMES = {
   ramadan: {
     label: 'Ramadan',
     accent: '#f2c14e',
+    palette: { primary: '#0f766e', dark: '#115e59', light: '#b2e3dc', wash: '#eef8f6' },
     icon: Moon,
     decor: [Star, Star, Sparkles],
     crescent: true,
@@ -33,6 +36,7 @@ export const THEMES = {
   eid: {
     label: 'Eid',
     accent: '#f2c14e',
+    palette: { primary: '#15803d', dark: '#166534', light: '#bbe5c8', wash: '#eff8f1' },
     icon: Sparkles,
     decor: [Star, Sparkles, Gift, Star],
     crescent: true,
@@ -46,6 +50,7 @@ export const THEMES = {
   backToSchool: {
     label: 'Back to school',
     accent: '#ffd166',
+    palette: { primary: '#1d4ed8', dark: '#1e40af', light: '#c7d6fe', wash: '#f0f4ff' },
     icon: Backpack,
     decor: [Pencil, BookOpen, Ruler, Backpack],
     motion: 'drift',

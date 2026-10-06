@@ -86,7 +86,7 @@ const FooterModern = () => {
                     style={{
                       width: 'clamp(100px, 18vw, 160px)',
                       height: 'clamp(56px, 10vw, 90px)',
-                      backgroundColor: '#D32F2F',
+                      backgroundColor: 'var(--canadian-red)',
                       borderRadius: '8px',
                       display: 'flex',
                       alignItems: 'center',
@@ -133,7 +133,7 @@ const FooterModern = () => {
                       transition: 'all 0.3s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#D32F2F';
+                      e.currentTarget.style.backgroundColor = 'var(--canadian-red)';
                       e.currentTarget.style.color = 'white';
                     }}
                     onMouseLeave={(e) => {
@@ -171,7 +171,7 @@ const FooterModern = () => {
                       transition: 'color 0.3s',
                     };
                     
-                    const handleMouseEnter = (e) => e.target.style.color = '#D32F2F';
+                    const handleMouseEnter = (e) => e.target.style.color = 'var(--canadian-red)';
                     const handleMouseLeave = (e) => e.target.style.color = '#888';
 
                     if (isInternal) {
@@ -224,24 +224,24 @@ const FooterModern = () => {
             justifyContent: 'space-between',
             gap: '1rem',
           }}>
-            <p style={{ color: '#666', fontSize: '0.85rem', margin: 0 }}>
+            <p style={{ color: '#a3a3a3', fontSize: '0.85rem', margin: 0 }}>
               © {new Date().getFullYear()} {t('footer.rights')}
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
               <Link
                 to="/privacy"
-                style={{ display: 'inline-block', padding: '10px 0', color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
-                onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
-                onMouseLeave={(e) => e.target.style.color = '#666'}
+                style={{ display: 'inline-block', padding: '10px 0', color: '#a3a3a3', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
+                onMouseEnter={(e) => e.target.style.color = 'var(--canadian-red)'}
+                onMouseLeave={(e) => e.target.style.color = '#a3a3a3'}
               >
                 {t('footer.privacy')}
               </Link>
               <Link
                 to="/terms"
-                style={{ display: 'inline-block', padding: '10px 0', color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
-                onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
-                onMouseLeave={(e) => e.target.style.color = '#666'}
+                style={{ display: 'inline-block', padding: '10px 0', color: '#a3a3a3', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
+                onMouseEnter={(e) => e.target.style.color = 'var(--canadian-red)'}
+                onMouseLeave={(e) => e.target.style.color = '#a3a3a3'}
               >
                 {t('footer.terms')}
               </Link>
@@ -252,7 +252,7 @@ const FooterModern = () => {
                 style={{
                   width: '40px',
                   height: '40px',
-                  backgroundColor: '#D32F2F',
+                  backgroundColor: 'var(--canadian-red)',
                   border: 'none',
                   borderRadius: '10px',
                   color: 'white',
@@ -264,7 +264,7 @@ const FooterModern = () => {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(211,47,47,0.4)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px color-mix(in srgb, var(--canadian-red) 40%, transparent)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
