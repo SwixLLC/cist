@@ -3,6 +3,7 @@ import { ArrowRight, CalendarCheck, Landmark, Languages, GraduationCap, MapPin }
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSite } from '../lib/siteContent';
+import ThemeDecor from './ThemeDecor';
 
 /** Scrolls to the contact form and pre-selects "Book a visit" as the subject. */
 export const requestVisit = () => {
@@ -12,9 +13,11 @@ export const requestVisit = () => {
 
 const HeroModern = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
-  const { images } = useSite();
-  const slides = images.heroSlides.filter(Boolean);
+  const { t, i18n } = useTranslation();
+  const { images, theme } = useSite();
+  // A theme can put its own photo first in the banner
+  const slides = [theme?.heroImage, ...images.heroSlides].filter(Boolean);
+  const ThemeIcon = theme?.icon;
   const [currentSlide, setCurrentSlide] = useState(0);
   const active = currentSlide % slides.length;
 
@@ -34,7 +37,11 @@ const HeroModern = () => {
   ];
 
   return (
-    <section id="home" className="lp-hero">
+    <section
+      id="home"
+      className={`lp-hero${theme ? ` lp-hero--theme lp-hero--${theme.id}` : ''}`}
+      style={theme ? { '--theme-accent': theme.accent } : undefined}
+    >
       {slides.map((src, index) => (
         <div key={`${src}-${index}`} className={`lp-hero__slide${index === active ? ' is-active' : ''}`} aria-hidden={index !== active}>
           <img
@@ -46,7 +53,15 @@ const HeroModern = () => {
         </div>
       ))}
 
+      {theme && <ThemeDecor theme={theme} />}
+
       <div className="container lp-hero__inner">
+        {theme && (
+          <p className="lp-theme-badge">
+            <ThemeIcon size={17} aria-hidden="true" />
+            {theme.message[i18n.language] || theme.message.en}
+          </p>
+        )}
         <h1 className="lp-hero__title">
           {t('hero.line1')} <span>{t('hero.line2')}</span>
         </h1>

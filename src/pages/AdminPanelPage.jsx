@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Image as ImageIcon, Newspaper, CalendarDays, LayoutGrid, LogOut, Lock, Mail, AlertCircle,
-  ArrowLeft, ExternalLink, Loader2, LayoutTemplate, Type, School, KeyRound,
+  ArrowLeft, ExternalLink, Loader2, LayoutTemplate, Type, School, KeyRound, Palette,
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { ToastProvider, ConfirmProvider } from './admin/ui';
@@ -13,6 +13,7 @@ import PageImagesSection from './admin/PageImagesSection';
 import TextsSection from './admin/TextsSection';
 import SchoolInfoSection from './admin/SchoolInfoSection';
 import AccountSection from './admin/AccountSection';
+import ThemesSection from './admin/ThemesSection';
 import { useSite } from '../lib/siteContent';
 import './admin/admin.css';
 
@@ -23,6 +24,7 @@ const SECTIONS = [
   { id: 'page-images', label: 'Page images', icon: LayoutTemplate, Component: PageImagesSection, group: 'Website' },
   { id: 'texts', label: 'Texts', icon: Type, Component: TextsSection, group: 'Website' },
   { id: 'info', label: 'School info', icon: School, Component: SchoolInfoSection, group: 'Website' },
+  { id: 'themes', label: 'Themes', icon: Palette, Component: ThemesSection, group: 'Website' },
   { id: 'photos', label: 'Photo library', icon: ImageIcon, Component: PhotosSection, group: 'Website' },
   { id: 'account', label: 'Account', icon: KeyRound, Component: AccountSection, group: 'Settings' },
 ];

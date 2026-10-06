@@ -5,6 +5,7 @@ import fr from '../i18n/fr.json';
 import es from '../i18n/es.json';
 import { getSiteContent, getCachedSiteContent } from './cmsData';
 import { DEFAULT_IMAGES, DEFAULT_SETTINGS } from './defaultContent';
+import { resolveTheme } from './themes';
 
 export const BASE_TRANSLATIONS = { en, fr, es };
 
@@ -45,7 +46,7 @@ function resolve(content) {
     if (typeof v === 'boolean' || v) settings[k] = v;
   });
 
-  return { images, settings };
+  return { images, settings, theme: resolveTheme(content.theme) };
 }
 
 const SiteContext = createContext(resolve({}));
