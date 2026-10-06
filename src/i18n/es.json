@@ -183,7 +183,9 @@
   "map": {
     "title": "Visita Nuestro Campus",
     "subtitle": "Ubicado en la hermosa ciudad de Tánger, nuestro campus es fácilmente accesible y da la bienvenida a visitantes para recorridos.",
-    "directions": "Cómo Llegar"
+    "directions": "Cómo Llegar",
+    "consentText": "El mapa lo proporciona Google Maps. Mostrarlo comparte su dirección IP con Google.",
+    "showMap": "Mostrar el mapa"
   },
   "enrollment": {
     "title": "Pre-Inscripción",

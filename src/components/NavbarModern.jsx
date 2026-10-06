@@ -117,6 +117,7 @@ const NavbarModern = ({ scrolled }) => {
             {navItems.map((item) => (
               <button
                 key={item.name}
+                className={activeSection === item.href.slice(1) ? undefined : scrolled ? 'hv-navlink' : 'hv-navlink-light'}
                 onClick={() => handleNavClick(item.href)}
                 style={{
                   color: activeSection === item.href.slice(1) ? 'var(--canadian-red)' : scrolled ? '#333' : '#fff',
@@ -129,14 +130,6 @@ const NavbarModern = ({ scrolled }) => {
                   borderRadius: '8px',
                   transition: 'all 0.2s ease',
                 }}
-                onMouseEnter={(e) => {
-                  if (activeSection !== item.href.slice(1)) {
-                    e.target.style.backgroundColor = scrolled ? '#f5f5f5' : 'rgba(255,255,255,0.1)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                }}
               >
                 {item.name}
               </button>
@@ -144,6 +137,7 @@ const NavbarModern = ({ scrolled }) => {
             <LanguageSwitcher scrolled={scrolled} />
             <button
               onClick={() => navigate('/enroll')}
+              className="hv-lift"
               style={{
                 background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
                 color: '#fff',
@@ -155,14 +149,6 @@ const NavbarModern = ({ scrolled }) => {
                 marginLeft: '0.5rem',
                 boxShadow: '0 4px 15px color-mix(in srgb, var(--canadian-red) 30%, transparent)',
                 transition: 'all 0.3s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px color-mix(in srgb, var(--canadian-red) 40%, transparent)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px color-mix(in srgb, var(--canadian-red) 30%, transparent)';
               }}
             >
               {t('nav.register')}

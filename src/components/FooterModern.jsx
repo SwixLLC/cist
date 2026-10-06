@@ -121,6 +121,7 @@ const FooterModern = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
+                    className="hv-social"
                     style={{
                       width: '40px',
                       height: '40px',
@@ -131,14 +132,6 @@ const FooterModern = () => {
                       justifyContent: 'center',
                       color: '#888',
                       transition: 'all 0.3s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--canadian-red)';
-                      e.currentTarget.style.color = 'white';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#2a2a2a';
-                      e.currentTarget.style.color = '#888';
                     }}
                   >
                     <social.icon size={18} />
@@ -171,17 +164,14 @@ const FooterModern = () => {
                       transition: 'color 0.3s',
                     };
                     
-                    const handleMouseEnter = (e) => e.target.style.color = 'var(--canadian-red)';
-                    const handleMouseLeave = (e) => e.target.style.color = '#888';
 
                     if (isInternal) {
                       return (
                         <li key={index}>
                           <Link
+                            className="hv-link"
                             to={link.href}
                             style={commonStyle}
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
                           >
                             {link.name}
                           </Link>
@@ -194,9 +184,8 @@ const FooterModern = () => {
                         <a
                           href={link.href}
                           onClick={(e) => handleLinkClick(e, link.href)}
+                          className="hv-link"
                           style={commonStyle}
-                          onMouseEnter={handleMouseEnter}
-                          onMouseLeave={handleMouseLeave}
                         >
                           {link.name}
                         </a>
@@ -230,18 +219,16 @@ const FooterModern = () => {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
               <Link
+                className="hv-link"
                 to="/privacy"
                 style={{ display: 'inline-block', padding: '10px 0', color: '#a3a3a3', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
-                onMouseEnter={(e) => e.target.style.color = 'var(--canadian-red)'}
-                onMouseLeave={(e) => e.target.style.color = '#a3a3a3'}
               >
                 {t('footer.privacy')}
               </Link>
               <Link
+                className="hv-link"
                 to="/terms"
                 style={{ display: 'inline-block', padding: '10px 0', color: '#a3a3a3', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
-                onMouseEnter={(e) => e.target.style.color = 'var(--canadian-red)'}
-                onMouseLeave={(e) => e.target.style.color = '#a3a3a3'}
               >
                 {t('footer.terms')}
               </Link>
@@ -249,6 +236,8 @@ const FooterModern = () => {
               {/* Back to Top */}
               <button
                 onClick={scrollToTop}
+                className="hv-lift"
+                aria-label="Back to top"
                 style={{
                   width: '40px',
                   height: '40px',
@@ -261,14 +250,6 @@ const FooterModern = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px color-mix(in srgb, var(--canadian-red) 40%, transparent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <ChevronUp size={20} />

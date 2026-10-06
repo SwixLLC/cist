@@ -75,6 +75,7 @@ const NotFoundPage = () => {
           flexWrap: 'wrap'
         }}>
           <button
+            className="hv-lift"
             onClick={() => navigate('/')}
             style={{
               background: 'linear-gradient(135deg, var(--canadian-red) 0%, var(--canadian-red-dark) 100%)',
@@ -90,20 +91,13 @@ const NotFoundPage = () => {
               gap: '0.5rem',
               transition: 'all 0.3s ease'
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 25px color-mix(in srgb, var(--canadian-red) 40%, transparent)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
           >
             <Home size={20} />
             Back to Home
           </button>
 
           <button
+            className="hv-wash"
             onClick={() => navigate(-1)}
             style={{
               backgroundColor: 'transparent',
@@ -118,14 +112,6 @@ const NotFoundPage = () => {
               alignItems: 'center',
               gap: '0.5rem',
               transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--canadian-red-wash)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
             <ArrowLeft size={20} />

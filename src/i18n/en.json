@@ -183,7 +183,9 @@
   "map": {
     "title": "Visit Our Campus",
     "subtitle": "Located in the beautiful city of Tangier, our campus is easily accessible and welcomes visitors for tours.",
-    "directions": "Get Directions"
+    "directions": "Get Directions",
+    "consentText": "The map is provided by Google Maps. Showing it shares your IP address with Google.",
+    "showMap": "Show map"
   },
   "enrollment": {
     "title": "Pre-Registration",

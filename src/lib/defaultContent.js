@@ -118,7 +118,7 @@ export const DEFAULT_SETTINGS = {
   addressLine1: 'Route du Charf, Km 5',
   addressLine2: 'Tangier 90000, Morocco',
   mapDirectionsUrl: 'https://maps.app.goo.gl/CfRE2FrXNx3VUhiH6',
-  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5!2d-5.9036!3d35.7267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b89b5f5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sCanadian%20International%20School%20Tangier!5e0!3m2!1sen!2sma!4v1609459200000!5m2!1sen!2sma',
+  mapEmbedUrl: 'https://maps.google.com/maps?q=Canadian%20International%20School%20Tangier&output=embed',
   facebookUrl: 'https://www.facebook.com/cis.ac.ma/',
   instagramUrl: 'https://www.instagram.com/cis_tangier/',
   linkedinUrl: 'https://ma.linkedin.com/company/canadian-international-school-of-tangier',

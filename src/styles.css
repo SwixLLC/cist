@@ -188,3 +188,53 @@ button,
 a {
   touch-action: manipulation;
 }
+
+/* Hover effects for elements styled inline (navbar, footer, language menu, 404 and registration pages).
+   Inline styles win over normal CSS, hence !important. Mouse only, so taps don't leave them stuck. */
+.hv-lift,
+.hv-wash,
+.hv-social,
+.hv-link,
+.hv-navlink,
+.hv-navlink-light,
+.hv-menuitem {
+  transition: transform 160ms ease-out, box-shadow 200ms ease, background-color 200ms ease, color 200ms ease !important;
+}
+
+.hv-lift:active,
+.hv-wash:active {
+  transform: scale(0.97) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hv-lift:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--canadian-red) 35%, transparent) !important;
+  }
+
+  .hv-wash:hover {
+    background-color: var(--canadian-red-wash) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .hv-social:hover {
+    background-color: var(--canadian-red) !important;
+    color: #fff !important;
+  }
+
+  .hv-link:hover {
+    color: var(--canadian-red) !important;
+  }
+
+  .hv-navlink:hover {
+    background-color: #f5f5f5 !important;
+  }
+
+  .hv-navlink-light:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .hv-menuitem:hover {
+    background-color: #f9f9f9 !important;
+  }
+}

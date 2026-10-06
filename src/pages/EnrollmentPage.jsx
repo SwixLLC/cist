@@ -425,6 +425,7 @@ const EnrollmentPage = () => {
 
             <button
               type="submit"
+              className="hv-lift"
               disabled={!agreementChecked}
               style={{
                 width: '100%',
@@ -440,16 +441,6 @@ const EnrollmentPage = () => {
                 cursor: agreementChecked ? 'pointer' : 'not-allowed',
                 transition: 'all 0.3s ease',
                 opacity: agreementChecked ? 1 : 0.6
-              }}
-              onMouseEnter={(e) => {
-                if (agreementChecked) {
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 8px 20px color-mix(in srgb, var(--canadian-red) 30%, transparent)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
               }}
             >
               {t('enrollment.submit')}

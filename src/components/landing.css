@@ -1782,3 +1782,37 @@ textarea.lp-input {
     min-height: 42px;
   }
 }
+
+/* Map placeholder until the visitor chooses to load Google Maps */
+.lp-map__consent {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  height: clamp(340px, 42vw, 480px);
+  padding: 24px 24px 24px clamp(24px, 34%, 420px);
+  text-align: center;
+  color: var(--lp-text);
+  background:
+    radial-gradient(circle at 70% 40%, color-mix(in srgb, var(--lp-red) 10%, transparent), transparent 60%),
+    repeating-linear-gradient(45deg, #efebe7 0 2px, transparent 2px 22px),
+    #f4f1ee;
+}
+
+.lp-map__consent svg {
+  color: var(--lp-red);
+}
+
+.lp-map__consent p {
+  max-width: 40ch;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .lp-map__consent {
+    height: auto;
+    padding: 40px 24px;
+  }
+}

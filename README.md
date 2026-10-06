@@ -12,6 +12,8 @@ Public website and admin panel for CIST (https://cist.ma).
 - Supabase: database (content), storage (`website-images` bucket) and admin sign-in
 - EmailJS: sends the contact and pre-registration forms to the school
 - i18next: translations in `src/i18n/*.json` (admins can override any text from the panel)
+- Fonts (Inter, Playfair Display) are self-hosted in `public/fonts` via `src/fonts.css`; no Google Fonts requests
+- Google Maps loads only after the visitor clicks "Show map" (privacy)
 
 ## Getting started
 

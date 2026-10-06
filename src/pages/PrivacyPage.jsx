@@ -36,7 +36,7 @@ const PrivacyPage = () => {
           paragraphs: [
             "We implement appropriate technical and organizational security measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.",
             "We do not sell, trade, or rent your personal identification information to third parties.",
-            "To run this website we use a small number of service providers: EmailJS delivers the messages you send through our forms to the school, Supabase hosts the website's content, and Google provides the fonts and the map. They only receive the information needed to provide their service."
+            "To run this website we use a small number of service providers: EmailJS delivers the messages you send through our forms to the school, Supabase hosts the website's content, and Google Maps shows our location (only after you choose to display the map). They only receive the information needed to provide their service."
           ]
         },
         {
@@ -83,7 +83,7 @@ const PrivacyPage = () => {
           paragraphs: [
             "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, altération, divulgation ou destruction.",
             "Nous ne vendons, n'échangeons ni ne louons vos informations d'identification personnelle à des tiers.",
-            "Pour faire fonctionner ce site, nous faisons appel à quelques prestataires : EmailJS transmet à l'école les messages envoyés via nos formulaires, Supabase héberge le contenu du site, et Google fournit les polices et la carte. Ils ne reçoivent que les informations nécessaires à leur service."
+            "Pour faire fonctionner ce site, nous faisons appel à quelques prestataires : EmailJS transmet à l'école les messages envoyés via nos formulaires, Supabase héberge le contenu du site, et Google Maps affiche notre emplacement (uniquement si vous choisissez d’afficher la carte). Ils ne reçoivent que les informations nécessaires à leur service."
           ]
         },
         {
@@ -130,7 +130,7 @@ const PrivacyPage = () => {
           paragraphs: [
             "Implementamos medidas de seguridad técnicas y organizativas adecuadas para proteger sus datos personales contra el acceso no autorizado, alteración, divulgación o destrucción.",
             "No vendemos, comercializamos ni alquilamos su información de identificación personal a terceros.",
-            "Para el funcionamiento de este sitio utilizamos algunos proveedores de servicios: EmailJS entrega a la escuela los mensajes enviados a través de nuestros formularios, Supabase aloja el contenido del sitio y Google proporciona las fuentes y el mapa. Solo reciben la información necesaria para prestar su servicio."
+            "Para el funcionamiento de este sitio utilizamos algunos proveedores de servicios: EmailJS entrega a la escuela los mensajes enviados a través de nuestros formularios, Supabase aloja el contenido del sitio y Google Maps muestra nuestra ubicación (solo si usted decide mostrar el mapa). Solo reciben la información necesaria para prestar su servicio."
           ]
         },
         {

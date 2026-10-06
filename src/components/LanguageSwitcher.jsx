@@ -73,6 +73,7 @@ const LanguageSwitcher = ({ scrolled }) => {
             {languages.map(lang => (
               <button
                 key={lang.code}
+                className={i18n.language !== lang.code ? 'hv-menuitem' : undefined}
                 onClick={() => handleSelect(lang.code)}
                 style={{
                   display: 'flex',
@@ -89,8 +90,6 @@ const LanguageSwitcher = ({ scrolled }) => {
                   textAlign: 'left',
                   transition: 'background 0.15s',
                 }}
-                onMouseEnter={e => { if (i18n.language !== lang.code) e.currentTarget.style.background = '#f9f9f9'; }}
-                onMouseLeave={e => { if (i18n.language !== lang.code) e.currentTarget.style.background = 'transparent'; }}
               >
                 <Flag src={lang.img} name={lang.name} size={22} />
                 <span>{lang.name}</span>

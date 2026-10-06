@@ -183,7 +183,9 @@
   "map": {
     "title": "Visitez Notre Campus",
     "subtitle": "Situé dans la belle ville de Tanger, notre campus est facilement accessible et accueille les visiteurs pour des visites guidées.",
-    "directions": "Obtenir l'Itinéraire"
+    "directions": "Obtenir l'Itinéraire",
+    "consentText": "La carte est fournie par Google Maps. L’afficher partage votre adresse IP avec Google.",
+    "showMap": "Afficher la carte"
   },
   "enrollment": {
     "title": "Pré-Inscription",
