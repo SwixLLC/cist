@@ -57,9 +57,12 @@ const HeroModern = () => {
 
       <div className="container lp-hero__inner">
         {theme && (
-          <p className="lp-theme-badge">
-            <ThemeIcon size={17} aria-hidden="true" />
-            {theme.message[i18n.language] || theme.message.en}
+          <p className="lp-theme-badge" key={theme.id}>
+            <span className="lp-theme-badge__medal" aria-hidden="true">
+              <ThemeIcon size={19} strokeWidth={2} />
+            </span>
+            <span className="lp-theme-badge__text">{theme.message[i18n.language] || theme.message.en}</span>
+            <span className="lp-theme-badge__rule" aria-hidden="true" />
           </p>
         )}
         <h1 className="lp-hero__title">
