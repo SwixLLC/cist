@@ -97,9 +97,11 @@
   box-shadow: 0 6px 18px -6px rgba(183, 28, 28, 0.55);
 }
 
-.lp-btn--primary:hover {
-  background: var(--lp-red-dark);
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .lp-btn--primary:hover {
+    background: var(--lp-red-dark);
+    color: #fff;
+  }
 }
 
 .lp-btn--light {
@@ -107,9 +109,11 @@
   color: var(--lp-red-dark);
 }
 
-.lp-btn--light:hover {
-  background: #fff4f3;
-  color: var(--lp-red-dark);
+@media (hover: hover) and (pointer: fine) {
+  .lp-btn--light:hover {
+    background: #fff4f3;
+    color: var(--lp-red-dark);
+  }
 }
 
 .lp-btn--ghost-light {
@@ -118,10 +122,12 @@
   background: transparent;
 }
 
-.lp-btn--ghost-light:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .lp-btn--ghost-light:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
 }
 
 .lp-btn--outline {
@@ -130,9 +136,11 @@
   background: #fff;
 }
 
-.lp-btn--outline:hover {
-  border-color: var(--lp-ink);
-  color: var(--lp-ink);
+@media (hover: hover) and (pointer: fine) {
+  .lp-btn--outline:hover {
+    border-color: var(--lp-ink);
+    color: var(--lp-ink);
+  }
 }
 
 .lp-link {
@@ -148,16 +156,20 @@
   cursor: pointer;
 }
 
-.lp-link:hover {
-  color: var(--lp-red-dark);
+@media (hover: hover) and (pointer: fine) {
+  .lp-link:hover {
+    color: var(--lp-red-dark);
+  }
 }
 
 .lp-link svg {
   transition: transform 200ms var(--lp-ease);
 }
 
-.lp-link:hover svg {
-  transform: translateX(3px);
+@media (hover: hover) and (pointer: fine) {
+  .lp-link:hover svg {
+    transform: translateX(3px);
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -456,8 +468,10 @@
   transition: color 200ms ease;
 }
 
-.lp-stage-tab:hover .lp-stage-tab__title {
-  color: var(--lp-ink);
+@media (hover: hover) and (pointer: fine) {
+  .lp-stage-tab:hover .lp-stage-tab__title {
+    color: var(--lp-ink);
+  }
 }
 
 .lp-stage-tab[aria-selected='true'] {
@@ -582,9 +596,11 @@
   transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
 }
 
-.lp-chip:hover {
-  border-color: var(--lp-ink);
-  color: var(--lp-ink);
+@media (hover: hover) and (pointer: fine) {
+  .lp-chip:hover {
+    border-color: var(--lp-ink);
+    color: var(--lp-ink);
+  }
 }
 
 .lp-chip[aria-pressed='true'] {
@@ -624,8 +640,10 @@
   transition: transform 600ms var(--lp-ease);
 }
 
-.lp-tile:hover img {
-  transform: scale(1.04);
+@media (hover: hover) and (pointer: fine) {
+  .lp-tile:hover img {
+    transform: scale(1.04);
+  }
 }
 
 .lp-tile__cap {
@@ -1061,8 +1079,10 @@
   text-decoration: none;
 }
 
-.lp-info a:hover {
-  color: var(--lp-red);
+@media (hover: hover) and (pointer: fine) {
+  .lp-info a:hover {
+    color: var(--lp-red);
+  }
 }
 
 .lp-social {
@@ -1088,10 +1108,12 @@
   transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
 }
 
-.lp-social a:hover {
-  border-color: var(--lp-red);
-  background: var(--lp-red);
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .lp-social a:hover {
+    border-color: var(--lp-red);
+    background: var(--lp-red);
+    color: #fff;
+  }
 }
 
 .lp-form-card {
@@ -1152,8 +1174,10 @@ textarea.lp-input {
   resize: vertical;
 }
 
-.lp-input:hover {
-  border-color: #bdb5ad;
+@media (hover: hover) and (pointer: fine) {
+  .lp-input:hover {
+    border-color: #bdb5ad;
+  }
 }
 
 .lp-input:focus {
@@ -1297,8 +1321,10 @@ textarea.lp-input {
   cursor: pointer;
 }
 
-.lp-lightbox__close:hover {
-  background: rgba(255, 255, 255, 0.22);
+@media (hover: hover) and (pointer: fine) {
+  .lp-lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
 }
 
 @keyframes lp-fade {
@@ -1500,9 +1526,11 @@ textarea.lp-input {
   transition: transform 200ms var(--lp-ease), box-shadow 200ms ease;
 }
 
-.lp-whatsapp:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 28px -6px rgba(18, 140, 64, 0.6);
+@media (hover: hover) and (pointer: fine) {
+  .lp-whatsapp:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 28px -6px rgba(18, 140, 64, 0.6);
+  }
 }
 
 .lp-whatsapp:focus-visible {
@@ -1709,5 +1737,49 @@ textarea.lp-input {
   .lp-theme-badge__text,
   .lp-theme-badge__rule {
     animation: lp-fade 300ms ease both !important;
+  }
+}
+
+/* ---------- Phone fixes ---------- */
+
+/* Bigger tap area for text buttons without changing the layout */
+.lp-link {
+  padding: 10px 0;
+  margin: -10px 0;
+}
+
+.lp-info a,
+.lp-info span {
+  display: inline-block;
+  padding: 3px 0;
+}
+
+/* Press feedback for touch (hover styles only apply with a mouse) */
+.lp-chip:active,
+.lp-tile:active,
+.lp-stage-tab:active {
+  transform: scale(0.97);
+}
+
+.lp-chip,
+.lp-stage-tab {
+  transition: transform 120ms ease-out, background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+@media (max-width: 1024px) {
+  /* Slides change by themselves; the tiny dots are hard to tap on touch screens */
+  .lp-hero__facts .lp-hero__dots {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  /* On phones the headline spans the full width, so decorations would sit on the text */
+  .lp-decor {
+    display: none;
+  }
+
+  .lp-chip {
+    min-height: 42px;
   }
 }

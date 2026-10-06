@@ -94,8 +94,10 @@ export default function EventsSection() {
                   <div className="adm-row__meta">
                     {evt.pinned && <span className="adm-tag"><Pin size={11} aria-hidden="true" style={{ marginRight: 4, verticalAlign: '-1px' }} />Pinned to top</span>}
                     <span className="adm-sr">{evt.date},</span>
-                    <Clock size={13} aria-hidden="true" />
-                    <span>{!evt.time || /^all day$/i.test(evt.time) ? 'All day' : evt.time}</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                      <Clock size={13} aria-hidden="true" />
+                      {!evt.time || /^all day$/i.test(evt.time) ? 'All day' : evt.time}
+                    </span>
                   </div>
                 </div>
                 <div className="adm-row__actions">

@@ -174,6 +174,8 @@ const NavbarModern = ({ scrolled }) => {
             <LanguageSwitcher scrolled={scrolled} />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
               style={{
                 background: scrolled ? '#f5f5f5' : 'rgba(255,255,255,0.1)',
                 border: 'none',

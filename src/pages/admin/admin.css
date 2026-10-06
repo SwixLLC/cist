@@ -120,8 +120,10 @@
   user-select: none;
 }
 
-.adm-btn:hover {
-  background: var(--hover);
+@media (hover: hover) and (pointer: fine) {
+  .adm-btn:hover {
+    background: var(--hover);
+  }
 }
 
 .adm-btn:active:not(:disabled) {
@@ -139,9 +141,11 @@
   color: #fff;
 }
 
-.adm-btn--primary:hover {
-  background: var(--red-strong);
-  border-color: var(--red-strong);
+@media (hover: hover) and (pointer: fine) {
+  .adm-btn--primary:hover {
+    background: var(--red-strong);
+    border-color: var(--red-strong);
+  }
 }
 
 .adm-btn--ghost {
@@ -150,9 +154,11 @@
   color: var(--ink-2);
 }
 
-.adm-btn--ghost:hover {
-  background: var(--hover);
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .adm-btn--ghost:hover {
+    background: var(--hover);
+    color: var(--ink);
+  }
 }
 
 .adm-btn--danger {
@@ -161,8 +167,10 @@
   color: #fff;
 }
 
-.adm-btn--danger:hover {
-  background: var(--red-strong);
+@media (hover: hover) and (pointer: fine) {
+  .adm-btn--danger:hover {
+    background: var(--red-strong);
+  }
 }
 
 .adm-btn--block {
@@ -184,18 +192,22 @@
   transition: background-color 150ms ease, color 150ms ease, transform 120ms ease;
 }
 
-.adm-icon-btn:hover {
-  background: var(--hover);
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .adm-icon-btn:hover {
+    background: var(--hover);
+    color: var(--ink);
+  }
 }
 
 .adm-icon-btn:active {
   transform: scale(0.94);
 }
 
-.adm-icon-btn--danger:hover {
-  background: var(--red-wash);
-  color: var(--red);
+@media (hover: hover) and (pointer: fine) {
+  .adm-icon-btn--danger:hover {
+    background: var(--red-wash);
+    color: var(--red);
+  }
 }
 
 .adm-spin {
@@ -252,10 +264,12 @@
   color: var(--faint);
 }
 
-.adm-input:hover,
-.adm-select:hover,
-.adm-textarea:hover {
-  border-color: var(--faint);
+@media (hover: hover) and (pointer: fine) {
+  .adm-input:hover,
+  .adm-select:hover,
+  .adm-textarea:hover {
+    border-color: var(--faint);
+  }
 }
 
 .adm-input:focus,
@@ -403,8 +417,10 @@
   text-decoration: none;
 }
 
-.adm-login__back:hover {
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .adm-login__back:hover {
+    color: var(--ink);
+  }
 }
 
 .adm-boot {
@@ -487,9 +503,11 @@
   transition: color 150ms ease;
 }
 
-.adm-nav__item:hover {
-  background: var(--hover);
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .adm-nav__item:hover {
+    background: var(--hover);
+    color: var(--ink);
+  }
 }
 
 .adm-nav__item[aria-current='page'] {
@@ -594,8 +612,10 @@
   transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.adm-chip:hover {
-  border-color: var(--faint);
+@media (hover: hover) and (pointer: fine) {
+  .adm-chip:hover {
+    border-color: var(--faint);
+  }
 }
 
 .adm-chip[aria-pressed='true'] {
@@ -751,13 +771,17 @@
   box-shadow: 0 1px 3px rgba(28, 25, 23, 0.18);
 }
 
-.adm-tile__actions .adm-icon-btn:hover {
-  background: #fff;
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .adm-tile__actions .adm-icon-btn:hover {
+    background: #fff;
+    color: var(--ink);
+  }
 }
 
-.adm-tile__actions .adm-icon-btn--danger:hover {
-  color: var(--red);
+@media (hover: hover) and (pointer: fine) {
+  .adm-tile__actions .adm-icon-btn--danger:hover {
+    color: var(--red);
+  }
 }
 
 .adm-tile__meta {
@@ -821,8 +845,10 @@
   border-top: 0;
 }
 
-.adm-row:hover {
-  background: #fcfbfa;
+@media (hover: hover) and (pointer: fine) {
+  .adm-row:hover {
+    background: #fcfbfa;
+  }
 }
 
 .adm-row__thumb {
@@ -1116,8 +1142,10 @@
   justify-self: start;
 }
 
-.adm-linkbtn:hover {
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .adm-linkbtn:hover {
+    color: var(--ink);
+  }
 }
 
 /* Library chooser inside dialog */
@@ -1148,8 +1176,10 @@
   transition: transform 250ms var(--ease-out);
 }
 
-.adm-lib button:hover img {
-  transform: scale(1.04);
+@media (hover: hover) and (pointer: fine) {
+  .adm-lib button:hover img {
+    transform: scale(1.04);
+  }
 }
 
 .adm-lib button[aria-pressed='true'] {
@@ -1272,8 +1302,10 @@
   padding: 0;
 }
 
-.adm-toast button:hover {
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .adm-toast button:hover {
+    color: #fff;
+  }
 }
 
 @keyframes adm-toast-in {
@@ -1603,8 +1635,10 @@
   cursor: pointer;
 }
 
-.adm-texts__groups button:hover {
-  background: var(--hover);
+@media (hover: hover) and (pointer: fine) {
+  .adm-texts__groups button:hover {
+    background: var(--hover);
+  }
 }
 
 .adm-texts__groups button[aria-pressed='true'] {
@@ -1747,8 +1781,10 @@
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 120ms ease;
 }
 
-.adm-theme-card:hover {
-  border-color: var(--line-strong);
+@media (hover: hover) and (pointer: fine) {
+  .adm-theme-card:hover {
+    border-color: var(--line-strong);
+  }
 }
 
 .adm-theme-card:active {
@@ -1808,7 +1844,114 @@
   color: var(--red);
 }
 
-.adm-icon-btn--on:hover {
-  background: var(--red-line);
-  color: var(--red-strong);
+@media (hover: hover) and (pointer: fine) {
+  .adm-icon-btn--on:hover {
+    background: var(--red-line);
+    color: var(--red-strong);
+  }
+}
+
+/* ---------- Phone: "More" sheet + touch-sized controls ---------- */
+
+.adm-more {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-sheet);
+  max-height: 85dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 12px calc(16px + env(safe-area-inset-bottom, 0px));
+  border-radius: 18px 18px 0 0;
+  background: var(--surface);
+  box-shadow: 0 -12px 40px -12px rgba(41, 37, 36, 0.3);
+  animation: adm-sheet-up 260ms var(--ease-out);
+}
+
+.adm-more__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 6px 4px 10px;
+}
+
+.adm-more__head strong {
+  font-size: 16px;
+}
+
+.adm-more__group {
+  display: grid;
+  gap: 2px;
+  padding: 6px 0;
+  border-top: 1px solid var(--line);
+}
+
+.adm-more__group:first-of-type {
+  border-top: 0;
+}
+
+.adm-more__group .adm-nav__group {
+  margin-top: 8px;
+}
+
+.adm-more .adm-nav__item {
+  height: 48px;
+  font-size: 15.5px;
+  text-decoration: none;
+}
+
+@keyframes adm-sheet-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  /* Four fixed tabs fill the bar; no hidden scrolling */
+  .adm-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: visible;
+  }
+
+  .adm-tabs button {
+    min-height: 56px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Finger-sized controls on touch screens */
+@media (pointer: coarse) {
+  .adm-icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .adm-btn {
+    min-height: 44px;
+  }
+
+  .adm-seg button {
+    height: 40px;
+  }
+
+  .adm-linkbtn {
+    padding: 10px 0;
+    margin: -10px 0;
+  }
+
+  .adm-chip {
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adm-more {
+    animation: adm-fade 200ms ease;
+  }
 }

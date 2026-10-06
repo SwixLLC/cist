@@ -167,3 +167,23 @@ a:hover {
   h2 { font-size: 1.5rem; }
   h3 { font-size: 1.25rem; }
 }
+
+/* Touch baseline: no grey tap flash, no 300ms tap delay, no text selection on long-press of controls */
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+[role='button'],
+[role='tab'],
+.lp-btn,
+.adm-btn {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+a {
+  touch-action: manipulation;
+}

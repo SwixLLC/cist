@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -33,13 +34,15 @@ const LanguageSwitcher = ({ scrolled }) => {
       <button
         onClick={() => setOpen(!open)}
         aria-label={`Language: ${current.name}`}
+        aria-expanded={open}
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: '0.35rem',
           background: scrolled ? '#f5f5f5' : 'rgba(255,255,255,0.15)',
           border: scrolled ? '1px solid #e0e0e0' : '1px solid rgba(255,255,255,0.3)',
-          padding: '0.4rem 0.65rem',
+          minHeight: '40px',
+          padding: '0 0.7rem',
           borderRadius: '20px',
           cursor: 'pointer',
           transition: 'all 0.2s ease',
@@ -47,7 +50,7 @@ const LanguageSwitcher = ({ scrolled }) => {
         }}
       >
         <Flag src={current.img} name={current.name} size={22} />
-        <span style={{ fontSize: '0.6rem', opacity: 0.7 }}>▼</span>
+        <ChevronDown size={14} style={{ opacity: 0.75 }} aria-hidden="true" />
       </button>
 
       {open && (

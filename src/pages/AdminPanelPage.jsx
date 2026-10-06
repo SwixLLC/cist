@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Image as ImageIcon, Newspaper, CalendarDays, LayoutGrid, LogOut, Lock, Mail, AlertCircle,
-  ArrowLeft, ExternalLink, Loader2, LayoutTemplate, Type, School, KeyRound, Palette,
+  ArrowLeft, ExternalLink, Loader2, LayoutTemplate, Type, School, KeyRound, Palette, MoreHorizontal, X,
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { ToastProvider, ConfirmProvider } from './admin/ui';
@@ -293,8 +293,19 @@ function SetNewPassword({ onDone }) {
 
 /* ---------- Dashboard shell ---------- */
 
+// Shown directly in the phone tab bar; everything else lives under "More"
+const PHONE_TABS = ['news', 'events', 'gallery'];
+
 function Dashboard({ session }) {
   const [active, setActive] = useState(sectionFromHash);
+  const [moreOpen, setMoreOpen] = useState(false);
+
+  useEffect(() => {
+    if (!moreOpen) return undefined;
+    const onKey = (e) => e.key === 'Escape' && setMoreOpen(false);
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [moreOpen]);
 
   useEffect(() => {
     const onHash = () => setActive(sectionFromHash());
@@ -371,13 +382,56 @@ function Dashboard({ session }) {
       </main>
 
       <nav className="adm-tabs" aria-label="Sections">
-        {SECTIONS.map(({ id, label, icon: Icon }) => (
+        {SECTIONS.filter((s) => PHONE_TABS.includes(s.id)).map(({ id, label, icon: Icon }) => (
           <button key={id} type="button" aria-current={active === id ? 'page' : undefined} onClick={() => go(id)}>
             <Icon size={21} />
             {label}
           </button>
         ))}
+        <button
+          type="button"
+          aria-current={!PHONE_TABS.includes(active) ? 'page' : undefined}
+          aria-expanded={moreOpen}
+          onClick={() => setMoreOpen(true)}
+        >
+          <MoreHorizontal size={21} />
+          {PHONE_TABS.includes(active) ? 'More' : SECTIONS.find((s) => s.id === active).label}
+        </button>
       </nav>
+
+      {moreOpen && (
+        <>
+          <div className="adm-scrim" onClick={() => setMoreOpen(false)} />
+          <div className="adm-more" role="dialog" aria-modal="true" aria-label="All sections">
+            <div className="adm-more__head">
+              <strong>All sections</strong>
+              <button type="button" className="adm-icon-btn" onClick={() => setMoreOpen(false)} aria-label="Close">
+                <X size={20} />
+              </button>
+            </div>
+            {['Content', 'Website', 'Settings'].map((group) => (
+              <div key={group} className="adm-more__group">
+                <span className="adm-nav__group">{group}</span>
+                {SECTIONS.filter((s) => s.group === group).map(({ id, label, icon: Icon }) => (
+                  <button
+                    key={id}
+                    type="button"
+                    className="adm-nav__item"
+                    aria-current={active === id ? 'page' : undefined}
+                    onClick={() => { go(id); setMoreOpen(false); }}
+                  >
+                    <Icon size={19} /> {label}
+                  </button>
+                ))}
+              </div>
+            ))}
+            <div className="adm-more__group">
+              <a className="adm-nav__item" href="/" target="_blank" rel="noreferrer"><ExternalLink size={19} /> View website</a>
+              <button type="button" className="adm-nav__item" onClick={signOut}><LogOut size={19} /> Sign out</button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

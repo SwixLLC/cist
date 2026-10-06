@@ -163,6 +163,8 @@ const FooterModern = () => {
                     const isInternal = link.href.startsWith('/');
                     
                     const commonStyle = {
+                      display: 'inline-block',
+                      padding: '6px 0',
                       color: '#888',
                       textDecoration: 'none',
                       fontSize: '0.9rem',
@@ -174,7 +176,7 @@ const FooterModern = () => {
 
                     if (isInternal) {
                       return (
-                        <li key={index} style={{ marginBottom: '0.5rem' }}>
+                        <li key={index}>
                           <Link
                             to={link.href}
                             style={commonStyle}
@@ -188,7 +190,7 @@ const FooterModern = () => {
                     }
 
                     return (
-                      <li key={index} style={{ marginBottom: '0.5rem' }}>
+                      <li key={index}>
                         <a
                           href={link.href}
                           onClick={(e) => handleLinkClick(e, link.href)}
@@ -229,7 +231,7 @@ const FooterModern = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
               <Link
                 to="/privacy"
-                style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
+                style={{ display: 'inline-block', padding: '10px 0', color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
                 onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
                 onMouseLeave={(e) => e.target.style.color = '#666'}
               >
@@ -237,7 +239,7 @@ const FooterModern = () => {
               </Link>
               <Link
                 to="/terms"
-                style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
+                style={{ display: 'inline-block', padding: '10px 0', color: '#666', fontSize: '0.85rem', textDecoration: 'none', transition: 'color 0.3s' }}
                 onMouseEnter={(e) => e.target.style.color = '#D32F2F'}
                 onMouseLeave={(e) => e.target.style.color = '#666'}
               >
