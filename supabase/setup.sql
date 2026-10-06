@@ -36,7 +36,8 @@ create table if not exists public.upcoming_events (
 alter table public.upcoming_events
   add column if not exists date text,
   add column if not exists title text,
-  add column if not exists time text;
+  add column if not exists time text,
+  add column if not exists pinned boolean not null default false;
 
 create table if not exists public.gallery_photos (
   id uuid primary key default gen_random_uuid(),

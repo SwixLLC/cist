@@ -84,6 +84,9 @@ export async function deleteNews(id) {
 }
 
 // --- UPCOMING EVENTS API ---
+// The pinned event (chosen in Admin → Events) always comes first; the rest keep their order
+const pinnedFirst = (events) => [...events].sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned));
+
 export async function getEvents() {
   try {
     const { data, error } = await supabase
@@ -92,7 +95,7 @@ export async function getEvents() {
       .order('created_at', { ascending: false });
 
     if (!error && data && data.length > 0) {
-      return data;
+      return pinnedFirst(data);
     }
   } catch (e) {
     console.warn('Supabase upcoming_events table not reachable', e);
@@ -101,7 +104,7 @@ export async function getEvents() {
   const local = localStorage.getItem('cist_custom_events');
   if (local) {
     try {
-      return JSON.parse(local);
+      return pinnedFirst(JSON.parse(local));
     } catch {
       return DEFAULT_EVENTS;
     }

@@ -1802,3 +1802,13 @@
   background: var(--rail);
   color: var(--muted);
 }
+
+.adm-icon-btn--on {
+  background: var(--red-wash);
+  color: var(--red);
+}
+
+.adm-icon-btn--on:hover {
+  background: var(--red-line);
+  color: var(--red-strong);
+}

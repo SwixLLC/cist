@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Plus, Pencil, Trash2, CalendarDays, Clock } from 'lucide-react';
+import { Plus, Pencil, Trash2, CalendarDays, Clock, Pin, PinOff } from 'lucide-react';
 import { getEvents, saveEvent, deleteEvent } from '../../lib/cmsData';
 import {
   useToast, useSaveToast, useConfirm, Sheet, Field, EmptyState, SkeletonList,
@@ -21,6 +21,25 @@ export default function EventsSection() {
     load();
   }, []);
 
+  // Only one event can be pinned: pinning one unpins the others
+  const togglePin = async (evt) => {
+    const pinning = !evt.pinned;
+    const others = items.filter((e) => e.id !== evt.id && e.pinned);
+    const results = await Promise.all([
+      ...others.map((e) => saveEvent({ ...e, pinned: false })),
+      saveEvent({ ...evt, pinned: pinning }),
+    ]);
+    await load();
+    if (results.some((r) => r && r.savedInSupabase === false)) {
+      toast('Saved on this device only', {
+        tone: 'warn',
+        detail: 'The website database needs the "pinned" column. Run the latest supabase/setup.sql, then try again.',
+      });
+    } else {
+      toast(pinning ? `“${evt.title}” is now at the top` : 'Event unpinned');
+    }
+  };
+
   const remove = async (evt) => {
     const ok = await confirm({
       title: 'Delete this event?',
@@ -37,7 +56,7 @@ export default function EventsSection() {
       <header className="adm-head">
         <div>
           <h1>Events</h1>
-          <p>Dates shown in the Upcoming events list next to the school news.</p>
+          <p>Dates shown in the Upcoming events list next to the school news. Pin an event to show it first.</p>
         </div>
         <div className="adm-head__actions">
           <button type="button" className="adm-btn adm-btn--primary" onClick={() => setEditing(blankEvent())}>
@@ -73,12 +92,23 @@ export default function EventsSection() {
                 <div className="adm-row__body">
                   <h3 className="adm-row__title">{evt.title}</h3>
                   <div className="adm-row__meta">
+                    {evt.pinned && <span className="adm-tag"><Pin size={11} aria-hidden="true" style={{ marginRight: 4, verticalAlign: '-1px' }} />Pinned to top</span>}
                     <span className="adm-sr">{evt.date},</span>
                     <Clock size={13} aria-hidden="true" />
                     <span>{!evt.time || /^all day$/i.test(evt.time) ? 'All day' : evt.time}</span>
                   </div>
                 </div>
                 <div className="adm-row__actions">
+                  <button
+                    type="button"
+                    className={`adm-icon-btn${evt.pinned ? ' adm-icon-btn--on' : ''}`}
+                    onClick={() => togglePin(evt)}
+                    aria-pressed={!!evt.pinned}
+                    aria-label={evt.pinned ? `Unpin “${evt.title}”` : `Pin “${evt.title}” to the top`}
+                    title={evt.pinned ? 'Unpin' : 'Pin to top'}
+                  >
+                    {evt.pinned ? <PinOff size={17} /> : <Pin size={17} />}
+                  </button>
                   <button type="button" className="adm-icon-btn" onClick={() => setEditing(evt)} aria-label={`Edit “${evt.title}”`} title="Edit">
                     <Pencil size={17} />
                   </button>
